@@ -1,4 +1,4 @@
-name: List 01 playground
+name: List 01 algorithm laboratory
 
 on:
   push:
@@ -9,11 +9,15 @@ on:
     paths:
       - "playground/list_01_foundations/**"
       - ".github/workflows/list-01-playground.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  test:
+  laboratory:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
       - uses: actions/checkout@v4
@@ -25,5 +29,57 @@ jobs:
       - name: Install grader dependencies
         run: python -m pip install -r playground/list_01_foundations/requirements-dev.txt
 
-      - name: Run List 01 tests against reference solution
-        run: pytest -q playground/list_01_foundations/tests
+      - name: Run grader self-tests and reference tests
+        run: |
+          mkdir -p artifacts
+          pytest playground/list_01_foundations/tests \
+            --timeout=3 \
+            --junitxml=artifacts/junit.xml \
+            -vv | tee artifacts/pytest.log
+
+      - name: Generate good student report
+        run: |
+          python -m playground.list_01_foundations.grader.evaluate \
+            --solution playground/list_01_foundations/samples/student_good.py \
+            --markdown artifacts/student-good.md \
+            --json artifacts/student-good.json
+
+      - name: Generate medium student report
+        run: |
+          python -m playground.list_01_foundations.grader.evaluate \
+            --solution playground/list_01_foundations/samples/student_medium.py \
+            --markdown artifacts/student-medium.md \
+            --json artifacts/student-medium.json
+
+      - name: Generate weak student report
+        run: |
+          python -m playground.list_01_foundations.grader.evaluate \
+            --solution playground/list_01_foundations/samples/student_bad.py \
+            --markdown artifacts/student-bad.md \
+            --json artifacts/student-bad.json
+
+      - name: Publish reports in GitHub Actions summary
+        shell: bash
+        run: |
+          {
+            echo "# List 01 algorithm laboratory"
+            echo
+            echo "## Strong implementation"
+            cat artifacts/student-good.md
+            echo
+            echo "---"
+            echo
+            echo "## Medium implementation"
+            cat artifacts/student-medium.md
+            echo
+            echo "---"
+            echo
+            echo "## Weak implementation"
+            cat artifacts/student-bad.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload laboratory evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: list-01-algorithm-laboratory
+          path: artifacts/
