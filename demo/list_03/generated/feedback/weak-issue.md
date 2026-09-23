@@ -1,6 +1,6 @@
 # List 03 — automated technical feedback
 
-Analysed revision: `c01a4778ec2b2f4d57861599386b166fa2adb9ff`
+Analysed revision: `901128068b6a6a58b95eb8eec03eebff2d1b1adf`
 Demonstration profile: **weak**
 
 ## Summary
@@ -23,12 +23,11 @@ Demonstration profile: **weak**
 
 - `avl_insert`: recursive AVL insertion not detected; AVL rotation calls not detected.
 
-## Tree shape matters
+## BST search correctness
 
-Balanced-tree probe: **24** key reads.
-Degenerate right-chain probe: **2** key reads.
+The search contract fails for: **left, right**.
 
-This contrast is expected: BST search is O(h), so a balanced tree and a degenerate tree with the same operation can behave very differently.
+Check the branch direction carefully: when target < node.key, continue in the left subtree; when target > node.key, continue in the right subtree.
 
 ## Duplicate handling
 
@@ -36,11 +35,23 @@ Inserting an existing key created **1** new node(s).
 
 Duplicate keys must be ignored without changing the tree.
 
+## Height convention
+
+The balanced probe returned height **6** where **7** is required.
+
+Use the declared convention consistently: empty tree has height 0 and a leaf has height 1.
+
 ## Global BST invariant
 
 The validator accepted a tree whose direct parent/child comparisons look valid locally but whose deeper node violates an ancestor bound.
 
 Carry lower and upper bounds through the recursion. Checking only immediate children is not sufficient.
+
+## Rotation maintenance
+
+The rotation probe observed **2** local link writes but **0** stored-height updates.
+
+A structurally correct rotation is not enough for AVL trees: after rewiring the subtree, recompute the stored heights of the demoted node first and the new subtree root second.
 
 ## AVL invariant
 

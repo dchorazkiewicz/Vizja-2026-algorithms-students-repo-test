@@ -8,4 +8,4 @@
 - event: 
 - runner OS: 
 - Python: 3.12
-- run URL: https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/runs/35821493438
+- run URL: https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/runs/35821582928
