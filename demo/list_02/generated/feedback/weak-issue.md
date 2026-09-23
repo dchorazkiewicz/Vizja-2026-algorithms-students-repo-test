@@ -1,6 +1,6 @@
 # List 02 — automated technical feedback
 
-Analysed revision: `5fa0cd9af0330396892f8a2e08b6e4da91bc8988`
+Analysed revision: `9e0b0f7a95deaeb7cc845fe8cd653ecd516efdf7`
 Demonstration profile: **weak**
 
 ## Summary
@@ -19,12 +19,6 @@ Demonstration profile: **weak**
 
 - `merge_sort`: banned shortcut calls: sorted; required recursive structure not detected.
 - `quick_sort_in_place`: loop nesting too shallow for requested method: 0; banned shortcut calls: sort; required recursive structure not detected.
-
-## Binary-search access pattern
-
-The large absent-target probe performed **26** reads.
-
-The task expects interval halving. Keep low/high bounds and inspect only the midpoint of the current search interval.
 
 ## Stability
 

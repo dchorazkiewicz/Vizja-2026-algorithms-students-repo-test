@@ -344,7 +344,7 @@
         4095,
         4095
       ],
-      "logarithmic_probe": false
+      "logarithmic_probe": true
     },
     "insertion_sort_in_place": {
       "ok": true,

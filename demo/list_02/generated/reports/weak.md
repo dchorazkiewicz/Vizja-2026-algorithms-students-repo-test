@@ -36,7 +36,7 @@ Solution: `demo/list_02/sample_submissions/weak.py`
 - reads: 26
 - writes: 0
 - visited_indices: [2047, 2047, 3071, 3071, 3583, 3583, 3839, 3839, 3967, 3967, 4031, 4031, 4063, 4063, 4079, 4079, 4087, 4087, 4091, 4091, 4093, 4093, 4094, 4094, 4095, 4095]
-- logarithmic_probe: False
+- logarithmic_probe: True
 
 ### insertion_sort_in_place
 

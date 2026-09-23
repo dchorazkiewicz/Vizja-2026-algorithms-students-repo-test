@@ -43,4 +43,4 @@ demo/list_02/tests/test_sample_profiles.py::test_functionally_correct_but_ineffi
 demo/list_02/tests/test_sample_profiles.py::test_weak_profile_has_correctness_and_method_defects PASSED [100%]
 
 - generated xml file: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test/artifacts/junit.xml -
-============================== 31 passed in 4.61s ==============================
+============================== 31 passed in 2.70s ==============================

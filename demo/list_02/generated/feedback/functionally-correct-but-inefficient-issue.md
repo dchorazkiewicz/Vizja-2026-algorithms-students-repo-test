@@ -1,6 +1,6 @@
 # List 02 — automated technical feedback
 
-Analysed revision: `5fa0cd9af0330396892f8a2e08b6e4da91bc8988`
+Analysed revision: `9e0b0f7a95deaeb7cc845fe8cd653ecd516efdf7`
 Demonstration profile: **functionally correct but inefficient**
 
 ## Summary
@@ -29,6 +29,12 @@ The task expects interval halving. Keep low/high bounds and inspect only the mid
 The probe observed **4032** writes for 64 elements.
 
 Canonical selection sort searches for the minimum first and performs at most one swap per outer iteration.
+
+## Merge complexity signal
+
+For `merge_sorted`, the measured comparison-growth exponent is approximately **1.984**.
+
+The merge step should be linear in the combined input size. Advance one of the two input cursors after each comparison instead of re-sorting the combined data.
 
 ## Merge-sort complexity signal
 
