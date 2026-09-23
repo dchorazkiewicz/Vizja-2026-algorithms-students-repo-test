@@ -4,7 +4,7 @@ cachedir: .pytest_cache
 hypothesis profile 'ci' -> database=None, deadline=None, print_blob=True, derandomize=True, suppress_health_check=(HealthCheck.too_slow,)
 rootdir: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test
 configfile: pytest.ini
-plugins: hypothesis-6.168.1, timeout-2.4.0
+plugins: timeout-2.4.0, hypothesis-6.168.1
 timeout: 5.0s
 timeout method: signal
 timeout func_only: False
@@ -30,4 +30,4 @@ demo/list_03/tests/test_sample_profiles.py::test_functionally_correct_but_ineffi
 demo/list_03/tests/test_sample_profiles.py::test_weak_profile_has_structural_and_correctness_defects PASSED [100%]
 
 - generated xml file: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test/artifacts/junit.xml -
-============================== 18 passed in 2.39s ==============================
+============================== 18 passed in 1.41s ==============================
