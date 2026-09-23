@@ -110,6 +110,18 @@ def render_feedback(data: dict, profile: str, source_sha: str) -> str:
             "",
         ]
 
+    merge_linear_growth = complexity.get("merge_sorted", {})
+    merge_linear_exp = merge_linear_growth.get("median_exponent")
+    if merge_linear_exp is not None and merge_linear_exp > 1.5:
+        lines += [
+            "## Merge complexity signal",
+            "",
+            f"For `merge_sorted`, the measured comparison-growth exponent is approximately **{merge_linear_exp:.3f}**.",
+            "",
+            "The merge step should be linear in the combined input size. Advance one of the two input cursors after each comparison instead of re-sorting the combined data.",
+            "",
+        ]
+
     merge_growth = complexity.get("merge_sort", {})
     merge_exp = merge_growth.get("median_exponent")
     if merge_exp is not None and merge_exp > 1.5:
