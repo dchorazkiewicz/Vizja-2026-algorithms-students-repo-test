@@ -30,7 +30,11 @@ jobs:
         run: python -m pip install -r playground/list_01_foundations/requirements-dev.txt
 
       - name: Run grader self-tests and reference tests
+        shell: bash
+        env:
+          PYTHONPATH: .
         run: |
+          set -o pipefail
           mkdir -p artifacts
           pytest playground/list_01_foundations/tests \
             --timeout=3 \
@@ -38,6 +42,8 @@ jobs:
             -vv | tee artifacts/pytest.log
 
       - name: Generate good student report
+        env:
+          PYTHONPATH: .
         run: |
           python -m playground.list_01_foundations.grader.evaluate \
             --solution playground/list_01_foundations/samples/student_good.py \
@@ -45,6 +51,8 @@ jobs:
             --json artifacts/student-good.json
 
       - name: Generate medium student report
+        env:
+          PYTHONPATH: .
         run: |
           python -m playground.list_01_foundations.grader.evaluate \
             --solution playground/list_01_foundations/samples/student_medium.py \
@@ -52,6 +60,8 @@ jobs:
             --json artifacts/student-medium.json
 
       - name: Generate weak student report
+        env:
+          PYTHONPATH: .
         run: |
           python -m playground.list_01_foundations.grader.evaluate \
             --solution playground/list_01_foundations/samples/student_bad.py \
