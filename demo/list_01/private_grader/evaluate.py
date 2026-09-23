@@ -554,7 +554,7 @@ def main():
     parser.add_argument("--json", dest="json_path", type=Path)
     args = parser.parse_args()
 
-    data = evaluate(args.solution.resolve())
+    data = evaluate(args.solution)
     markdown = to_markdown(data)
 
     if args.markdown:

@@ -27,6 +27,12 @@ sample_submissions/
 
 tests/
     functional, AST, runtime and complexity checks
+
+evidence/
+    curated verified snapshots
+
+generated/
+    CI-generated reports, logs and Issue feedback drafts
 ~~~
 
 In production, student_package would live in the public workbook. private_grader and tests would live in a private instructor-controlled repository. They are colocated here only so this repository can demonstrate the complete system.
@@ -63,11 +69,11 @@ python -m demo.list_01.private_grader.evaluate \
 
 ## Continuous integration
 
-GitHub Actions runs the complete laboratory on every relevant change. It executes the tests, verifies that the grader distinguishes all three sample profiles, generates Markdown and JSON reports, publishes them in the Actions summary, and uploads technical evidence as an artifact.
+GitHub Actions runs the complete laboratory on every relevant change. It executes the tests, verifies that the grader distinguishes all three sample profiles, generates Markdown and JSON reports, renders GitHub Issue feedback drafts, publishes the reports in the Actions summary, uploads the raw evidence as an artifact, and commits the latest generated evidence to `generated/`.
 
 The workflow is part of the demonstration: it proves that the inspection described here is executable rather than only conceptual.
 
 
 ## Captured evidence
 
-A successful CI run is preserved in [evidence/](evidence/) as concise snapshots for the three sample submissions. Raw JSON/JUnit/pytest logs remain available from the corresponding GitHub Actions run artifact.
+A successful CI run is preserved in [evidence/](evidence/) as concise curated snapshots. The latest machine-generated evidence is committed by GitHub Actions to [generated/](generated/), including the raw pytest log, JUnit XML, Markdown/JSON reports, run metadata, and ready-to-post GitHub Issue feedback drafts.

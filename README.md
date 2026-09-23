@@ -47,14 +47,16 @@ The demonstrator keeps the normally separate layers in one public repository so 
 
 [List 01 — Contracts, State and Simple Algorithms](demo/list_01/README.md) is the first end-to-end example.
 
-It contains four clearly separated parts:
+It contains clearly separated layers:
 
 - **student_package/** — exactly the kind of material that could be published to students;
 - **private_grader/** — the instructor-side grader, reference implementation and instrumentation;
 - **sample_submissions/** — three simulated student solutions with different quality profiles;
-- **tests/** — tests of both the assignment and the grader itself.
+- **tests/** — tests of both the assignment and the grader itself;
+- **evidence/** — curated snapshots of verified results;
+- **generated/** — the latest reports, raw test log, JUnit output, JSON evidence, and GitHub Issue feedback drafts committed automatically by GitHub Actions.
 
-GitHub Actions executes the complete laboratory and generates technical reports for all three sample submissions.
+GitHub Actions executes the complete laboratory, generates technical reports and student-facing Issue drafts for all three sample submissions, uploads the raw artifact, and commits the latest generated evidence back to this repository.
 
 ## Design principle
 

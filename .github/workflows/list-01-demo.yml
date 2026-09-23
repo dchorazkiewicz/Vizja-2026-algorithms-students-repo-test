@@ -5,18 +5,20 @@ on:
     paths:
       - "demo/list_01/**"
       - "!demo/list_01/evidence/**"
+      - "!demo/list_01/generated/**"
       - ".github/workflows/list-01-demo.yml"
       - "pytest.ini"
   pull_request:
     paths:
       - "demo/list_01/**"
       - "!demo/list_01/evidence/**"
+      - "!demo/list_01/generated/**"
       - ".github/workflows/list-01-demo.yml"
       - "pytest.ini"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   demonstrate:
@@ -41,37 +43,35 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p artifacts
-          pytest demo/list_01/tests \
-            --timeout=3 \
-            --junitxml=artifacts/junit.xml \
-            -vv | tee artifacts/pytest.log
+          pytest demo/list_01/tests             --timeout=3             --junitxml=artifacts/junit.xml             -vv | tee artifacts/pytest.log
 
       - name: Generate strong-submission report
         env:
           PYTHONPATH: .
         run: |
-          python -m demo.list_01.private_grader.evaluate \
-            --solution demo/list_01/sample_submissions/strong.py \
-            --markdown artifacts/strong.md \
-            --json artifacts/strong.json
+          python -m demo.list_01.private_grader.evaluate             --solution demo/list_01/sample_submissions/strong.py             --markdown artifacts/strong.md             --json artifacts/strong.json
 
       - name: Generate functionally-correct-but-inefficient report
         env:
           PYTHONPATH: .
         run: |
-          python -m demo.list_01.private_grader.evaluate \
-            --solution demo/list_01/sample_submissions/functionally_correct_but_inefficient.py \
-            --markdown artifacts/functionally-correct-but-inefficient.md \
-            --json artifacts/functionally-correct-but-inefficient.json
+          python -m demo.list_01.private_grader.evaluate             --solution demo/list_01/sample_submissions/functionally_correct_but_inefficient.py             --markdown artifacts/functionally-correct-but-inefficient.md             --json artifacts/functionally-correct-but-inefficient.json
 
       - name: Generate weak-submission report
         env:
           PYTHONPATH: .
         run: |
-          python -m demo.list_01.private_grader.evaluate \
-            --solution demo/list_01/sample_submissions/weak.py \
-            --markdown artifacts/weak.md \
-            --json artifacts/weak.json
+          python -m demo.list_01.private_grader.evaluate             --solution demo/list_01/sample_submissions/weak.py             --markdown artifacts/weak.md             --json artifacts/weak.json
+
+      - name: Render GitHub Issue feedback drafts
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_01.private_grader.feedback             --report-json artifacts/strong.json             --profile "strong"             --source-sha "$GITHUB_SHA"             --output artifacts/feedback-strong.md
+
+          python -m demo.list_01.private_grader.feedback             --report-json artifacts/functionally-correct-but-inefficient.json             --profile "functionally correct but inefficient"             --source-sha "$GITHUB_SHA"             --output artifacts/feedback-functionally-correct-but-inefficient.md
+
+          python -m demo.list_01.private_grader.feedback             --report-json artifacts/weak.json             --profile "weak"             --source-sha "$GITHUB_SHA"             --output artifacts/feedback-weak.md
 
       - name: Publish reports in the Actions summary
         shell: bash
@@ -93,8 +93,78 @@ jobs:
             cat artifacts/weak.md
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Prepare repository evidence snapshot
+        shell: bash
+        run: |
+          rm -rf demo/list_01/generated
+          mkdir -p demo/list_01/generated/reports
+          mkdir -p demo/list_01/generated/feedback
+          mkdir -p demo/list_01/generated/test-run
+
+          cp artifacts/strong.md demo/list_01/generated/reports/strong.md
+          cp artifacts/strong.json demo/list_01/generated/reports/strong.json
+          cp artifacts/functionally-correct-but-inefficient.md demo/list_01/generated/reports/functionally-correct-but-inefficient.md
+          cp artifacts/functionally-correct-but-inefficient.json demo/list_01/generated/reports/functionally-correct-but-inefficient.json
+          cp artifacts/weak.md demo/list_01/generated/reports/weak.md
+          cp artifacts/weak.json demo/list_01/generated/reports/weak.json
+
+          cp artifacts/feedback-strong.md demo/list_01/generated/feedback/strong-issue.md
+          cp artifacts/feedback-functionally-correct-but-inefficient.md demo/list_01/generated/feedback/functionally-correct-but-inefficient-issue.md
+          cp artifacts/feedback-weak.md demo/list_01/generated/feedback/weak-issue.md
+
+          cp artifacts/pytest.log demo/list_01/generated/test-run/pytest.log
+          cp artifacts/junit.xml demo/list_01/generated/test-run/junit.xml
+
+          cat > demo/list_01/generated/README.md <<EOF
+          # Latest CI-generated demonstration evidence
+
+          This directory is generated and committed automatically by GitHub Actions.
+
+          It contains the latest successful List 01 demonstration output:
+
+          - technical reports in Markdown and JSON;
+          - ready-to-post GitHub Issue feedback drafts;
+          - the raw pytest log;
+          - JUnit XML;
+          - run metadata.
+
+          Source commit evaluated: `$GITHUB_SHA`
+          GitHub Actions run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          The commit that updates this directory is created by `github-actions[bot]`.
+          EOF
+
+          cat > demo/list_01/generated/run-metadata.md <<EOF
+          # Run metadata
+
+          - source commit: `$GITHUB_SHA`
+          - workflow: `$GITHUB_WORKFLOW`
+          - run id: `$GITHUB_RUN_ID`
+          - run number: `$GITHUB_RUN_NUMBER`
+          - repository: `$GITHUB_REPOSITORY`
+          - event: `$GITHUB_EVENT_NAME`
+          - runner OS: `$RUNNER_OS`
+          - Python: 3.12
+          - run URL: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          EOF
+
       - name: Upload technical evidence
         uses: actions/upload-artifact@v4
         with:
           name: list-01-technical-evidence
           path: artifacts/
+
+      - name: Commit generated evidence to the repository
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demo/list_01/generated
+
+          if git diff --cached --quiet; then
+            echo "Generated evidence is unchanged; no commit required."
+          else
+            git commit -m "Update generated List 01 evidence [skip ci]"
+            git push
+          fi
