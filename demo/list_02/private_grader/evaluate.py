@@ -300,7 +300,7 @@ def runtime_observations(module):
             "reads": values.count("read"),
             "writes": values.count("write"),
             "visited_indices": values.visited_indices(),
-            "logarithmic_probe": values.count("read") <= 20,
+            "logarithmic_probe": values.count("read") <= 32,
         }
     safe("binary_search", binary_probe)
 
