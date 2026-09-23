@@ -2,7 +2,7 @@
 
 [![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml)
 
-This repository is a working demonstrator of the technical exercise workflow planned for **Algorithms and Complexity**.
+This repository is a working proof of concept showing how I would structure the technical exercise and feedback workflow for **Algorithms and Complexity**.
 
 Its scope is deliberately narrow: it shows how programming assignments can be distributed through GitHub, observed from student forks, evaluated with a private automated grader, and turned into versioned technical feedback. Lecture delivery and in-class student management are outside the scope of this repository.
 
@@ -34,13 +34,14 @@ The demonstrator keeps the normally separate layers in one public repository so 
 
 ## Documentation
 
-- [Course syllabus](docs/COURSE_SYLLABUS.md)
+- [Source syllabus reference](docs/COURSE_SYLLABUS.md)
+- [Scope and provenance](docs/SCOPE_AND_PROVENANCE.md)
 - [Task-design topic map](docs/TOPIC_AREAS.md)
 - [Why Python is the primary teaching language](docs/PYTHON_RATIONALE.md)
 - [Automated feedback pipeline](docs/AUTOMATED_FEEDBACK_PIPELINE.md)
 - [What the current demonstration detects](docs/DEMO_RESULTS.md)
 
-The complete lecture notes remain in [Algorithms_and_Complexity](https://github.com/dchorazkiewicz/Algorithms_and_Complexity). This repository is about the exercise and feedback infrastructure.
+`Algorithms_and_Complexity` is a separate syllabus-to-learning-material proof of concept: an experiment showing how the same source syllabus can be expanded into student-facing web notes. It is **not** an official set of lecture notes, does not imply that I teach the lecture, and is independent of the exercise-feedback demonstrator in this repository. The only shared foundation is the source syllabus.
 
 ## Working demonstration: List 01
 
