@@ -1,0 +1,29 @@
+name: List 01 playground
+
+on:
+  push:
+    paths:
+      - "playground/list_01_foundations/**"
+      - ".github/workflows/list-01-playground.yml"
+  pull_request:
+    paths:
+      - "playground/list_01_foundations/**"
+      - ".github/workflows/list-01-playground.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install grader dependencies
+        run: python -m pip install -r playground/list_01_foundations/requirements-dev.txt
+
+      - name: Run List 01 tests against reference solution
+        run: pytest -q playground/list_01_foundations/tests

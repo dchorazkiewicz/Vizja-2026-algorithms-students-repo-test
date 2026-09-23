@@ -10,4 +10,12 @@ Na tym etapie przenosimy wyłącznie dokumentację zakresu przedmiotu i mapę za
 - [Syllabus EN](docs/SYLLABUS_EN.md)
 - [Obszary tematyczne do projektowania zadań](docs/TOPIC_AREAS.md)
 
-Docelowo na podstawie tych obszarów będziemy projektować zadania i strukturę repozytorium przeznaczonego do forkowania przez studentów. Po ustaleniu właściwego modelu zatwierdzone materiały będzie można przenieść do oficjalnego workbooka dla przedmiotu.
+## Playground dydaktyczny
+
+Pierwszy eksperyment z zadaniami, testami funkcjonalnymi, analizą AST, instrumentacją wykonania i empirycznym badaniem złożoności znajduje się w:
+
+- [List 01 — Contracts, State and Simple Algorithms](playground/list_01_foundations/README.md)
+
+To repozytorium jest obecnie playgroundem: zadania, rozwiązania referencyjne i testy mogą leżeć obok siebie. Docelowo warstwa studencka zostanie oddzielona od prywatnego gradera i ukrytych testów.
+
+Po ustaleniu właściwego modelu zatwierdzone materiały będzie można przenieść do oficjalnego workbooka dla przedmiotu.
