@@ -1,0 +1,699 @@
+{
+  "solution": "demo/list_02/sample_submissions/weak.py",
+  "summary": {
+    "functional_passed": 25,
+    "functional_total": 31,
+    "method_issue_count": 5
+  },
+  "functional": {
+    "binary_search": {
+      "passed": 4,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single-hit",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "absent",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "leftmost-duplicate",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "boundary",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "insertion_sort_in_place": {
+      "passed": 5,
+      "total": 6,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "mixed",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicates",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "reverse",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "stable",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "selection_sort_in_place": {
+      "passed": 3,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "mixed",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicates",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "reverse",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "merge_sorted": {
+      "passed": 3,
+      "total": 5,
+      "cases": [
+        {
+          "case": "both-empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left-empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "interleaved",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicates",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "stable",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "merge_sort": {
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "mixed",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicates",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "stable",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "quick_sort_in_place": {
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "mixed",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicates",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "reverse",
+          "pass": true,
+          "error": null
+        }
+      ]
+    }
+  },
+  "static": {
+    "binary_search": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 2,
+      "returns": 2,
+      "calls": [
+        "len"
+      ],
+      "slice": false,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    },
+    "insertion_sort_in_place": {
+      "missing": false,
+      "loops": 2,
+      "max_loop_depth": 2,
+      "ifs": 0,
+      "returns": 0,
+      "calls": [
+        "len",
+        "range"
+      ],
+      "slice": false,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    },
+    "selection_sort_in_place": {
+      "missing": false,
+      "loops": 2,
+      "max_loop_depth": 2,
+      "ifs": 2,
+      "returns": 0,
+      "calls": [
+        "len",
+        "max",
+        "range"
+      ],
+      "slice": false,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    },
+    "merge_sorted": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 2,
+      "returns": 1,
+      "calls": [
+        "append",
+        "extend",
+        "len"
+      ],
+      "slice": true,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    },
+    "merge_sort": {
+      "missing": false,
+      "loops": 0,
+      "max_loop_depth": 0,
+      "ifs": 0,
+      "returns": 1,
+      "calls": [
+        "sorted"
+      ],
+      "slice": false,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    },
+    "quick_sort_in_place": {
+      "missing": false,
+      "loops": 0,
+      "max_loop_depth": 0,
+      "ifs": 0,
+      "returns": 0,
+      "calls": [
+        "sort"
+      ],
+      "slice": false,
+      "membership": false,
+      "recursive_functions": [],
+      "list_comprehension": false,
+      "imports": []
+    }
+  },
+  "method_findings": {
+    "binary_search": [],
+    "insertion_sort_in_place": [],
+    "selection_sort_in_place": [],
+    "merge_sorted": [],
+    "merge_sort": [
+      "banned shortcut calls: sorted",
+      "required recursive structure not detected"
+    ],
+    "quick_sort_in_place": [
+      "loop nesting too shallow for requested method: 0",
+      "banned shortcut calls: sort",
+      "required recursive structure not detected"
+    ]
+  },
+  "runtime": {
+    "binary_search": {
+      "ok": true,
+      "result": -1,
+      "reads": 26,
+      "writes": 0,
+      "visited_indices": [
+        2047,
+        2047,
+        3071,
+        3071,
+        3583,
+        3583,
+        3839,
+        3839,
+        3967,
+        3967,
+        4031,
+        4031,
+        4063,
+        4063,
+        4079,
+        4079,
+        4087,
+        4087,
+        4091,
+        4091,
+        4093,
+        4093,
+        4094,
+        4094,
+        4095,
+        4095
+      ],
+      "logarithmic_probe": false
+    },
+    "insertion_sort_in_place": {
+      "ok": true,
+      "sorted_input_comparisons": 63,
+      "sorted_input_writes": 63,
+      "reverse_input_comparisons": 2016,
+      "reverse_input_writes": 2079,
+      "stable": false,
+      "tagged_result": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    "selection_sort_in_place": {
+      "ok": true,
+      "comparisons": 1953,
+      "expected_canonical_comparisons": 2016,
+      "writes": 62,
+      "canonical_comparison_count": false,
+      "limited_data_movement": true
+    },
+    "merge_sorted": {
+      "ok": true,
+      "result": [
+        1,
+        2,
+        2,
+        3,
+        5,
+        6
+      ],
+      "comparisons": 8,
+      "reads": 22,
+      "input_writes": 0,
+      "stable": true,
+      "tagged_result": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    "merge_sort": {
+      "ok": true,
+      "result": [
+        1,
+        1,
+        2,
+        2,
+        3,
+        4,
+        4
+      ],
+      "input_writes": 0,
+      "comparisons": 13,
+      "stable": true,
+      "recursive_calls": 1,
+      "max_call_depth": 1
+    },
+    "quick_sort_in_place": {
+      "ok": true,
+      "returned": null,
+      "sorted": true,
+      "reads": 0,
+      "writes": 0,
+      "comparisons": 729,
+      "slice_reads": 0,
+      "slice_writes": 0,
+      "recursive_calls": 1,
+      "max_call_depth": 1
+    }
+  },
+  "complexity": {
+    "binary_search": {
+      "measurements": [
+        [
+          128,
+          16
+        ],
+        [
+          256,
+          18
+        ],
+        [
+          512,
+          20
+        ],
+        [
+          1024,
+          22
+        ],
+        [
+          2048,
+          24
+        ],
+        [
+          4096,
+          26
+        ]
+      ],
+      "max_reads": 26
+    },
+    "insertion_reverse": {
+      "measurements": [
+        [
+          32,
+          496
+        ],
+        [
+          64,
+          2016
+        ],
+        [
+          128,
+          8128
+        ],
+        [
+          256,
+          32640
+        ]
+      ],
+      "doubling_exponents": [
+        2.0230836131130414,
+        2.011404763272249,
+        2.0056687500866923
+      ],
+      "median_exponent": 2.011404763272249
+    },
+    "insertion_sorted": {
+      "measurements": [
+        [
+          32,
+          31
+        ],
+        [
+          64,
+          63
+        ],
+        [
+          128,
+          127
+        ],
+        [
+          256,
+          255
+        ]
+      ],
+      "doubling_exponents": [
+        1.0230836131130412,
+        1.0114047632722494,
+        1.005668750086692
+      ],
+      "median_exponent": 1.0114047632722494
+    },
+    "selection_reverse": {
+      "measurements": [
+        [
+          32,
+          465
+        ],
+        [
+          64,
+          1953
+        ],
+        [
+          128,
+          8001
+        ],
+        [
+          256,
+          32385
+        ]
+      ],
+      "doubling_exponents": [
+        2.070389327891398,
+        2.0344883763852906,
+        2.0170735133589415
+      ],
+      "median_exponent": 2.0344883763852906
+    },
+    "merge_sorted": {
+      "measurements": [
+        [
+          128,
+          190
+        ],
+        [
+          256,
+          382
+        ],
+        [
+          512,
+          766
+        ],
+        [
+          1024,
+          1534
+        ]
+      ],
+      "doubling_exponents": [
+        1.0075732197048008,
+        1.0037717538892086,
+        1.0018821855779765
+      ],
+      "median_exponent": 1.0037717538892086
+    },
+    "merge_sort": {
+      "measurements": [
+        [
+          64,
+          302
+        ],
+        [
+          128,
+          726
+        ],
+        [
+          256,
+          1712
+        ],
+        [
+          512,
+          3951
+        ]
+      ],
+      "doubling_exponents": [
+        1.265420998670672,
+        1.2376412484053962,
+        1.2065351445765238
+      ],
+      "median_exponent": 1.2376412484053962,
+      "nlogn_ratios": [
+        [
+          64,
+          0.7864583333333334
+        ],
+        [
+          128,
+          0.8102678571428571
+        ],
+        [
+          256,
+          0.8359375
+        ],
+        [
+          512,
+          0.857421875
+        ]
+      ]
+    },
+    "quick_sort": {
+      "measurements": [
+        [
+          64,
+          304
+        ],
+        [
+          128,
+          729
+        ],
+        [
+          256,
+          1734
+        ],
+        [
+          512,
+          3945
+        ]
+      ],
+      "doubling_exponents": [
+        1.2618474908833517,
+        1.250113178894898,
+        1.1859214016789859
+      ],
+      "median_exponent": 1.250113178894898,
+      "nlogn_ratios": [
+        [
+          64,
+          0.7916666666666666
+        ],
+        [
+          128,
+          0.8136160714285714
+        ],
+        [
+          256,
+          0.8466796875
+        ],
+        [
+          512,
+          0.8561197916666666
+        ]
+      ]
+    }
+  },
+  "memory": {
+    "insertion_sort_in_place": {
+      "peak_bytes": 116
+    },
+    "selection_sort_in_place": {
+      "peak_bytes": 128
+    },
+    "merge_sort": {
+      "peak_bytes": 8264
+    },
+    "quick_sort_in_place": {
+      "peak_bytes": 0
+    }
+  },
+  "output_capture": {
+    "stdout": "",
+    "stderr": ""
+  }
+}

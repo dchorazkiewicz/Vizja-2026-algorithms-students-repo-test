@@ -1,0 +1,46 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'ci' -> database=None, deadline=None, print_blob=True, derandomize=True, suppress_health_check=(HealthCheck.too_slow,)
+rootdir: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test
+configfile: pytest.ini
+plugins: timeout-2.4.0, hypothesis-6.168.1
+timeout: 5.0s
+timeout method: signal
+timeout func_only: False
+collecting ... collected 31 items
+
+demo/list_02/tests/test_ast.py::test_binary_search_structure PASSED      [  3%]
+demo/list_02/tests/test_ast.py::test_insertion_sort_structure PASSED     [  6%]
+demo/list_02/tests/test_ast.py::test_selection_sort_structure PASSED     [  9%]
+demo/list_02/tests/test_ast.py::test_merge_sorted_structure PASSED       [ 12%]
+demo/list_02/tests/test_ast.py::test_merge_sort_structure PASSED         [ 16%]
+demo/list_02/tests/test_ast.py::test_quick_sort_structure PASSED         [ 19%]
+demo/list_02/tests/test_behavior.py::test_binary_search_has_logarithmic_access_pattern PASSED [ 22%]
+demo/list_02/tests/test_behavior.py::test_insertion_sort_is_stable_and_adaptive PASSED [ 25%]
+demo/list_02/tests/test_behavior.py::test_selection_sort_has_canonical_comparison_count_and_limited_writes PASSED [ 29%]
+demo/list_02/tests/test_behavior.py::test_merge_sorted_is_stable_and_does_not_mutate_inputs PASSED [ 32%]
+demo/list_02/tests/test_behavior.py::test_merge_sort_is_stable_and_preserves_input PASSED [ 35%]
+demo/list_02/tests/test_behavior.py::test_quick_sort_is_in_place_without_slicing PASSED [ 38%]
+demo/list_02/tests/test_complexity.py::test_insertion_sort_worst_case_is_quadratic PASSED [ 41%]
+demo/list_02/tests/test_complexity.py::test_insertion_sort_sorted_input_is_adaptive PASSED [ 45%]
+demo/list_02/tests/test_complexity.py::test_selection_sort_comparisons_are_quadratic PASSED [ 48%]
+demo/list_02/tests/test_complexity.py::test_merge_sorted_comparison_growth_is_linear PASSED [ 51%]
+demo/list_02/tests/test_complexity.py::test_merge_sort_comparison_growth_is_nlogn_like PASSED [ 54%]
+demo/list_02/tests/test_complexity.py::test_quick_sort_comparison_growth_is_nlogn_like_on_shuffled_input PASSED [ 58%]
+demo/list_02/tests/test_functional.py::test_binary_search_property PASSED [ 61%]
+demo/list_02/tests/test_functional.py::test_binary_search_duplicate_is_leftmost PASSED [ 64%]
+demo/list_02/tests/test_functional.py::test_insertion_sort_property PASSED [ 67%]
+demo/list_02/tests/test_functional.py::test_insertion_sort_stability PASSED [ 70%]
+demo/list_02/tests/test_functional.py::test_selection_sort_property PASSED [ 74%]
+demo/list_02/tests/test_functional.py::test_merge_sorted_property PASSED [ 77%]
+demo/list_02/tests/test_functional.py::test_merge_sorted_stability PASSED [ 80%]
+demo/list_02/tests/test_functional.py::test_merge_sort_property PASSED   [ 83%]
+demo/list_02/tests/test_functional.py::test_merge_sort_stability PASSED  [ 87%]
+demo/list_02/tests/test_functional.py::test_quick_sort_property PASSED   [ 90%]
+demo/list_02/tests/test_sample_profiles.py::test_strong_profile_is_clean PASSED [ 93%]
+demo/list_02/tests/test_sample_profiles.py::test_functionally_correct_but_inefficient_profile_is_detected PASSED [ 96%]
+demo/list_02/tests/test_sample_profiles.py::test_weak_profile_has_correctness_and_method_defects PASSED [100%]
+
+- generated xml file: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test/artifacts/junit.xml -
+============================== 31 passed in 4.61s ==============================
