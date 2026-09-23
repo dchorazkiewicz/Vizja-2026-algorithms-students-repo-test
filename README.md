@@ -6,6 +6,8 @@
 
 This repository is a working proof of concept for the **technical side of programming exercises and feedback** in Algorithms and Complexity.
 
+**For the complete teaching philosophy and the way the full online classes are intended to work, see [How the Full Online Classes Would Be Run](FULL_ONLINE_TEACHING_MODEL.md).** This README focuses primarily on the technical exercise, evidence and feedback infrastructure.
+
 It demonstrates the **grading and feedback core** of a larger target workflow:
 
 ~~~text
@@ -202,6 +204,7 @@ Python is used deliberately because its low syntactic overhead and dynamic runti
 
 ## Documentation
 
+- [Full online teaching model](FULL_ONLINE_TEACHING_MODEL.md)
 - [Technical teaching model](docs/TECHNICAL_TEACHING_MODEL.md)
 - [Automated feedback pipeline](docs/AUTOMATED_FEEDBACK_PIPELINE.md)
 - [Verified demonstration evidence](docs/DEMO_RESULTS.md)
