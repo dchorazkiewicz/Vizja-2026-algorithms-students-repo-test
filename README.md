@@ -84,3 +84,12 @@ The purpose is not to reward clever test-specific code. The purpose is to make a
 The demonstrator measures not only correctness, but also comparison counts, data movement, stability, adaptivity, binary-search access patterns, recursion depth, empirical growth, in-place behaviour, and memory characteristics.
 
 The engineering goal is reproducibility and auditability: deterministic probes, machine-readable JSON/JUnit output, human-readable Markdown, commit-SHA provenance, and CI-generated evidence committed by GitHub Actions.
+
+
+## Verified CI evidence
+
+Both demonstrations are executable CI pipelines rather than static documentation.
+
+For List 02, the verified GitHub Actions run completed with **31 passing tests**, generated reports and student-facing feedback drafts, and committed the resulting evidence back to the repository using `github-actions[bot]`.
+
+See [List 02 generated evidence](demo/list_02/generated/) and [List 02 curated evidence](demo/list_02/evidence/).

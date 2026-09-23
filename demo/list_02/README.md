@@ -170,3 +170,21 @@ python -m demo.list_02.private_grader.feedback \
   --source-sha example-sha \
   --output issue.md
 ~~~
+
+
+## Verified GitHub Actions execution
+
+The final verified run is [List 02 automated assessment demo — run #4](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/runs/35820072440).
+
+The test stage completed with **31 passed in 2.70 s**.
+
+GitHub Actions then generated the three technical reports and Issue feedback drafts, uploaded the raw artifact, and committed the latest evidence back to the repository as:
+
+`1ed9cce2104d8f5f365254ad8ee8ac1b01bb835b — Update generated List 02 evidence [skip ci]`
+
+The commit author is `github-actions[bot]`.
+
+See:
+
+- [curated evidence](evidence/)
+- [latest CI-generated evidence](generated/)
