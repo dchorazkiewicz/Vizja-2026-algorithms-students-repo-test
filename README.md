@@ -10,6 +10,7 @@ Na tym etapie przenosimy wyłącznie dokumentację zakresu przedmiotu i mapę za
 - [Syllabus EN](docs/SYLLABUS_EN.md)
 - [Obszary tematyczne do projektowania zadań](docs/TOPIC_AREAS.md)
 - [Manifest dydaktyczny: dlaczego Python](docs/PYTHON_DIDACTIC_MANIFESTO.md)
+- [Automatyczny workflow pracy studenta i oceny technicznej](docs/AUTOMATED_STUDENT_WORKFLOW.md)
 
 ## Playground dydaktyczny
 
