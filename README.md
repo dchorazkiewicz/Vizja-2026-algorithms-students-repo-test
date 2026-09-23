@@ -88,7 +88,7 @@ The engineering goal is reproducibility and auditability: deterministic probes, 
 
 ## Verified CI evidence
 
-Both demonstrations are executable CI pipelines rather than static documentation.
+All three demonstrations are executable CI pipelines rather than static documentation.
 
 For List 02, the verified GitHub Actions run completed with **31 passing tests**, generated reports and student-facing feedback drafts, and committed the resulting evidence back to the repository using `github-actions[bot]`.
 
@@ -102,3 +102,8 @@ See [List 02 generated evidence](demo/list_02/generated/) and [List 02 curated e
 The grader observes node visits, key comparisons, left/right traversal, link writes, node allocation, recursion depth, actual tree height, global BST validity, stored AVL heights, balance factors, and rotation calls. It also compares balanced and degenerate trees to make the dependence on tree height directly observable.
 
 As with the earlier demonstrations, GitHub Actions runs the real grader, generates versioned reports and Issue feedback drafts, uploads raw evidence, and commits the latest generated evidence using `github-actions[bot]`.
+
+
+For List 03, the verified GitHub Actions run completed with **18 passing pytest checks**, while the embedded evaluator executed **34 functional checks per sample profile**. The workflow generated reports and Issue feedback drafts and committed the latest evidence using `github-actions[bot]`.
+
+See [List 03 generated evidence](demo/list_03/generated/) and [List 03 curated evidence](demo/list_03/evidence/).
