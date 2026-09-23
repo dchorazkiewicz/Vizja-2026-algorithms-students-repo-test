@@ -106,3 +106,21 @@ python -m demo.list_03.private_grader.evaluate \
   --markdown report.md \
   --json report.json
 ~~~
+
+
+## Verified GitHub Actions execution
+
+The reviewed final run is [List 03 automated assessment demo — run #2](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/runs/35821582928).
+
+The pytest stage completed with **18 passed in 2.39 s**. The embedded evaluator also ran **34 functional checks per simulated submission**.
+
+GitHub Actions generated the reports and Issue feedback drafts, uploaded the raw evidence, and committed the latest output back to the repository as:
+
+\`4381debe9bb5c0422a77d4d15086fe29b7ce9b47 — Update generated List 03 evidence [skip ci]\`
+
+The commit author is \`github-actions[bot]\`.
+
+See:
+
+- [curated evidence](evidence/)
+- [latest CI-generated evidence](generated/)

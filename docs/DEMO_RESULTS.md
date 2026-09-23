@@ -1,4 +1,16 @@
-# Demonstration results
+# Verified demonstration evidence
+
+This document collects concise evidence from the real GitHub Actions executions.
+
+| Demonstration | Strong | Functionally correct but inefficient | Weak |
+|---|---:|---:|---:|
+| List 01 | 23 / 23 functional, 0 findings | 23 / 23 functional, 7 findings | 9 / 23 functional, 7 findings |
+| List 02 | 31 / 31 functional, 0 findings | 31 / 31 functional, 5 findings | 25 / 31 functional, 5 findings |
+| List 03 | 34 / 34 functional, 0 findings | 34 / 34 functional, 6 findings | 14 / 34 functional, 2 findings |
+
+The middle column is central to the design: all required outputs can be correct while the implementation still provides strong evidence of the wrong algorithm, unnecessary work or an expensive structural strategy.
+
+---
 
 The polished List 01 demonstrator has been executed successfully in GitHub Actions.
 

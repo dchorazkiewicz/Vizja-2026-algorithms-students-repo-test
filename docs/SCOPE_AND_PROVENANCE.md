@@ -68,6 +68,12 @@ Neither repository is presented as an official university artifact unless it is 
 
 ## Current demonstration status
 
-List 01 is intentionally a self-contained demonstration. Student-facing files, private-grader files, hidden-test equivalents, sample submissions, CI, and evidence snapshots are kept together only so the complete mechanism can be inspected in one repository.
+The repository now contains three self-contained demonstrations:
+
+- List 01 — foundations and simple algorithm observability;
+- List 02 — searching, sorting and divide-and-conquer;
+- List 03 — binary trees, BST and AVL trees.
+
+For presentation purposes, each demonstration keeps student-facing files, private-grader files, hidden-test equivalents, simulated submissions, CI and evidence together so the entire mechanism can be inspected from one link.
 
 A production deployment would separate the public student layer from the private mirror/grader layer.

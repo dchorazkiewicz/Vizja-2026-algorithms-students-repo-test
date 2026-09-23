@@ -6,6 +6,16 @@ This document describes only the asynchronous technical workflow around programm
 
 It does not define lecture delivery, classroom discussion, attendance, or general student management. Those belong to a separate operational layer.
 
+## Design goals
+
+The pipeline is designed around five properties:
+
+- **reproducibility** — every report refers to a concrete code revision;
+- **separation of concerns** — student material, mirrors, graders and educational state have different responsibilities;
+- **actionable feedback** — reports explain observable implementation behaviour rather than returning only a score;
+- **iteration** — a correction creates a new version and a new report without erasing earlier evidence;
+- **automation of repeatable work** — deterministic technical checks are applied consistently.
+
 ## Production model
 
 The intended system separates four responsibilities.
