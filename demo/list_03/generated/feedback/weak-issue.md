@@ -1,0 +1,53 @@
+# List 03 — automated technical feedback
+
+Analysed revision: `c01a4778ec2b2f4d57861599386b166fa2adb9ff`
+Demonstration profile: **weak**
+
+## Summary
+
+- functional checks: **14/34**
+- methodological findings: **2**
+
+## Correctness issues
+
+- `inorder_keys`: 2/4 checks passed; failing cases: balanced, unbalanced.
+- `bst_contains`: 3/5 checks passed; failing cases: left, right.
+- `bst_insert`: 4/5 checks passed; failing cases: duplicate-ignored.
+- `bst_height`: 0/4 checks passed; failing cases: empty, leaf, balanced-3, left-chain.
+- `is_valid_bst`: 4/5 checks passed; failing cases: deep-global-violation.
+- `rotate_left`: 0/2 checks passed; failing cases: basic-shape-and-heights, subtree-preserved.
+- `rotate_right`: 0/2 checks passed; failing cases: basic-shape-and-heights, subtree-preserved.
+- `avl_insert`: 1/7 checks passed; failing cases: LL, RR, LR, RL, long-sequence, duplicate-ignored.
+
+## Implementation observations
+
+- `avl_insert`: recursive AVL insertion not detected; AVL rotation calls not detected.
+
+## Tree shape matters
+
+Balanced-tree probe: **24** key reads.
+Degenerate right-chain probe: **2** key reads.
+
+This contrast is expected: BST search is O(h), so a balanced tree and a degenerate tree with the same operation can behave very differently.
+
+## Duplicate handling
+
+Inserting an existing key created **1** new node(s).
+
+Duplicate keys must be ignored without changing the tree.
+
+## Global BST invariant
+
+The validator accepted a tree whose direct parent/child comparisons look valid locally but whose deeper node violates an ancestor bound.
+
+Carry lower and upper bounds through the recursion. Checking only immediate children is not sufficient.
+
+## AVL invariant
+
+After inserting 64 ascending keys, the resulting tree has height **64** and fails the AVL invariant.
+
+Update heights on the recursive return path and apply the appropriate LL, RR, LR or RL rotation when the balance factor leaves [-1, 1].
+
+---
+
+This feedback is generated from versioned technical evidence. It is intended to support revision of the implementation and is not a standalone final grade.

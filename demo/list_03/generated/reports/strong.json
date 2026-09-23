@@ -1,0 +1,545 @@
+{
+  "solution": "demo/list_03/sample_submissions/strong.py",
+  "summary": {
+    "functional_passed": 34,
+    "functional_total": 34,
+    "method_issue_count": 0
+  },
+  "functional": {
+    "inorder_keys": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "balanced",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "unbalanced",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "bst_contains": {
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "root",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "right",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "absent",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "bst_insert": {
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "right",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "deep",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicate-ignored",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "bst_height": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "leaf",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "balanced-3",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left-chain",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "is_valid_bst": {
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "valid",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "root-violation",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "deep-global-violation",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicate-invalid",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "rotate_left": {
+      "passed": 2,
+      "total": 2,
+      "cases": [
+        {
+          "case": "basic-shape-and-heights",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "subtree-preserved",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "rotate_right": {
+      "passed": 2,
+      "total": 2,
+      "cases": [
+        {
+          "case": "basic-shape-and-heights",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "subtree-preserved",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "avl_insert": {
+      "passed": 7,
+      "total": 7,
+      "cases": [
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "LL",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "RR",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "LR",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "RL",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "long-sequence",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicate-ignored",
+          "pass": true,
+          "error": null
+        }
+      ]
+    }
+  },
+  "static": {
+    "inorder_keys": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 1,
+      "calls": [
+        "append",
+        "visit"
+      ],
+      "recursive_functions": [
+        "visit"
+      ],
+      "list_literals": 1,
+      "list_comprehensions": 0
+    },
+    "bst_contains": {
+      "missing": false,
+      "loops": 1,
+      "ifs": 2,
+      "returns": 2,
+      "assignments": 3,
+      "calls": [],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "bst_insert": {
+      "missing": false,
+      "loops": 1,
+      "ifs": 5,
+      "returns": 4,
+      "assignments": 5,
+      "calls": [
+        "Node"
+      ],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "bst_height": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 0,
+      "calls": [
+        "bst_height",
+        "max"
+      ],
+      "recursive_functions": [
+        "bst_height"
+      ],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "is_valid_bst": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 3,
+      "returns": 5,
+      "assignments": 0,
+      "calls": [
+        "valid"
+      ],
+      "recursive_functions": [
+        "valid"
+      ],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "rotate_left": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 0,
+      "returns": 1,
+      "assignments": 4,
+      "calls": [
+        "_update_height"
+      ],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "rotate_right": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 0,
+      "returns": 1,
+      "assignments": 4,
+      "calls": [
+        "_update_height"
+      ],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "avl_insert": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 7,
+      "returns": 7,
+      "assignments": 5,
+      "calls": [
+        "Node",
+        "_stored_height",
+        "_update_height",
+        "avl_insert",
+        "rotate_left",
+        "rotate_right"
+      ],
+      "recursive_functions": [
+        "avl_insert"
+      ],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    }
+  },
+  "method_findings": {
+    "inorder_keys": [],
+    "bst_contains": [],
+    "bst_insert": [],
+    "bst_height": [],
+    "is_valid_bst": [],
+    "rotate_left": [],
+    "rotate_right": [],
+    "avl_insert": []
+  },
+  "runtime": {
+    "inorder_keys": {
+      "ok": true,
+      "correct": true,
+      "key_reads": 127,
+      "child_reads": 254,
+      "node_count": 127
+    },
+    "bst_contains": {
+      "ok": true,
+      "balanced_result": false,
+      "balanced_key_reads": 24,
+      "balanced_comparisons": 24,
+      "balanced_visited_count": 24,
+      "balanced_visited_sample": [
+        2047,
+        2047,
+        3071,
+        3071,
+        3583,
+        3583,
+        3839,
+        3839,
+        3967,
+        3967,
+        4031,
+        4031,
+        4063,
+        4063,
+        4079,
+        4079,
+        4087,
+        4087,
+        4091,
+        4091
+      ],
+      "skewed_result": false,
+      "skewed_key_reads": 1024,
+      "skewed_visited_count": 1024
+    },
+    "bst_insert": {
+      "ok": true,
+      "valid_after_insert": true,
+      "node_created_for_new_key": 1,
+      "link_writes_for_new_key": 1,
+      "key_reads_for_new_key": 16,
+      "node_created_for_duplicate": 0,
+      "link_writes_for_duplicate": 0
+    },
+    "bst_height": {
+      "ok": true,
+      "result": 7,
+      "expected": 7,
+      "child_reads": 254
+    },
+    "is_valid_bst": {
+      "ok": true,
+      "deep_invalid_result": false,
+      "key_reads": 6,
+      "child_reads": 3
+    },
+    "rotate_left": {
+      "ok": true,
+      "new_root": 20,
+      "valid_bst": true,
+      "link_writes": 2,
+      "height_writes": 2,
+      "actual_height": 2
+    },
+    "avl_insert": {
+      "ok": true,
+      "node_count": 64,
+      "actual_height": 7,
+      "valid_bst": true,
+      "valid_avl": true,
+      "nodes_created_across_64_insertions": 64,
+      "left_rotations": 57,
+      "right_rotations": 0,
+      "total_rotations": 57
+    }
+  },
+  "complexity": {
+    "bst_contains_balanced": {
+      "measurements": [
+        [
+          255,
+          16
+        ],
+        [
+          511,
+          18
+        ],
+        [
+          1023,
+          20
+        ],
+        [
+          2047,
+          22
+        ],
+        [
+          4095,
+          24
+        ]
+      ],
+      "max_key_reads": 24
+    },
+    "bst_contains_skewed": {
+      "measurements": [
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          512,
+          1024
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0
+    },
+    "avl_cumulative_node_allocations": {
+      "measurements": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0
+    },
+    "avl_final_height": {
+      "measurements": [
+        [
+          16,
+          5
+        ],
+        [
+          32,
+          6
+        ],
+        [
+          64,
+          7
+        ],
+        [
+          128,
+          8
+        ]
+      ]
+    }
+  },
+  "memory": {
+    "bst_contains": {
+      "peak_bytes": 0
+    },
+    "is_valid_bst": {
+      "peak_bytes": 200
+    }
+  }
+}

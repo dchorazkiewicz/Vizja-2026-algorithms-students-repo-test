@@ -1,0 +1,536 @@
+{
+  "solution": "demo/list_03/sample_submissions/weak.py",
+  "summary": {
+    "functional_passed": 14,
+    "functional_total": 34,
+    "method_issue_count": 2
+  },
+  "functional": {
+    "inorder_keys": {
+      "passed": 2,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "balanced",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "unbalanced",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "bst_contains": {
+      "passed": 3,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "root",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "right",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "absent",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "bst_insert": {
+      "passed": 4,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "left",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "right",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "deep",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicate-ignored",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "bst_height": {
+      "passed": 0,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "leaf",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "balanced-3",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "left-chain",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "is_valid_bst": {
+      "passed": 4,
+      "total": 5,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "valid",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "root-violation",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "deep-global-violation",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "duplicate-invalid",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "rotate_left": {
+      "passed": 0,
+      "total": 2,
+      "cases": [
+        {
+          "case": "basic-shape-and-heights",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "subtree-preserved",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "rotate_right": {
+      "passed": 0,
+      "total": 2,
+      "cases": [
+        {
+          "case": "basic-shape-and-heights",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "subtree-preserved",
+          "pass": false,
+          "error": null
+        }
+      ]
+    },
+    "avl_insert": {
+      "passed": 1,
+      "total": 7,
+      "cases": [
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "LL",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "RR",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "LR",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "RL",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "long-sequence",
+          "pass": false,
+          "error": null
+        },
+        {
+          "case": "duplicate-ignored",
+          "pass": false,
+          "error": null
+        }
+      ]
+    }
+  },
+  "static": {
+    "inorder_keys": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 0,
+      "calls": [
+        "inorder_keys"
+      ],
+      "recursive_functions": [
+        "inorder_keys"
+      ],
+      "list_literals": 2,
+      "list_comprehensions": 0
+    },
+    "bst_contains": {
+      "missing": false,
+      "loops": 1,
+      "ifs": 2,
+      "returns": 2,
+      "assignments": 3,
+      "calls": [],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "bst_insert": {
+      "missing": false,
+      "loops": 1,
+      "ifs": 4,
+      "returns": 3,
+      "assignments": 5,
+      "calls": [
+        "Node"
+      ],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "bst_height": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 0,
+      "calls": [
+        "bst_height",
+        "max"
+      ],
+      "recursive_functions": [
+        "bst_height"
+      ],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "is_valid_bst": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 3,
+      "returns": 4,
+      "assignments": 0,
+      "calls": [
+        "is_valid_bst"
+      ],
+      "recursive_functions": [
+        "is_valid_bst"
+      ],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "rotate_left": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 0,
+      "returns": 1,
+      "assignments": 3,
+      "calls": [],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "rotate_right": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 0,
+      "returns": 1,
+      "assignments": 3,
+      "calls": [],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    },
+    "avl_insert": {
+      "missing": false,
+      "loops": 0,
+      "ifs": 0,
+      "returns": 1,
+      "assignments": 0,
+      "calls": [
+        "bst_insert"
+      ],
+      "recursive_functions": [],
+      "list_literals": 0,
+      "list_comprehensions": 0
+    }
+  },
+  "method_findings": {
+    "inorder_keys": [],
+    "bst_contains": [],
+    "bst_insert": [],
+    "bst_height": [],
+    "is_valid_bst": [],
+    "rotate_left": [],
+    "rotate_right": [],
+    "avl_insert": [
+      "recursive AVL insertion not detected",
+      "AVL rotation calls not detected"
+    ]
+  },
+  "runtime": {
+    "inorder_keys": {
+      "ok": true,
+      "correct": false,
+      "key_reads": 127,
+      "child_reads": 254,
+      "node_count": 127
+    },
+    "bst_contains": {
+      "ok": true,
+      "balanced_result": false,
+      "balanced_key_reads": 24,
+      "balanced_comparisons": 24,
+      "balanced_visited_count": 24,
+      "balanced_visited_sample": [
+        2047,
+        2047,
+        1023,
+        1023,
+        511,
+        511,
+        255,
+        255,
+        127,
+        127,
+        63,
+        63,
+        31,
+        31,
+        15,
+        15,
+        7,
+        7,
+        3,
+        3
+      ],
+      "skewed_result": false,
+      "skewed_key_reads": 2,
+      "skewed_visited_count": 2
+    },
+    "bst_insert": {
+      "ok": true,
+      "valid_after_insert": false,
+      "node_created_for_new_key": 1,
+      "link_writes_for_new_key": 1,
+      "key_reads_for_new_key": 8,
+      "node_created_for_duplicate": 1,
+      "link_writes_for_duplicate": 1
+    },
+    "bst_height": {
+      "ok": true,
+      "result": 6,
+      "expected": 7,
+      "child_reads": 254
+    },
+    "is_valid_bst": {
+      "ok": true,
+      "deep_invalid_result": true,
+      "key_reads": 6,
+      "child_reads": 19
+    },
+    "rotate_left": {
+      "ok": true,
+      "new_root": 20,
+      "valid_bst": true,
+      "link_writes": 2,
+      "height_writes": 0,
+      "actual_height": 2
+    },
+    "avl_insert": {
+      "ok": true,
+      "node_count": 64,
+      "actual_height": 64,
+      "valid_bst": true,
+      "valid_avl": false,
+      "nodes_created_across_64_insertions": 64,
+      "left_rotations": 0,
+      "right_rotations": 0,
+      "total_rotations": 0
+    }
+  },
+  "complexity": {
+    "bst_contains_balanced": {
+      "measurements": [
+        [
+          255,
+          16
+        ],
+        [
+          511,
+          18
+        ],
+        [
+          1023,
+          20
+        ],
+        [
+          2047,
+          22
+        ],
+        [
+          4095,
+          24
+        ]
+      ],
+      "max_key_reads": 24
+    },
+    "bst_contains_skewed": {
+      "measurements": [
+        [
+          64,
+          2
+        ],
+        [
+          128,
+          2
+        ],
+        [
+          256,
+          2
+        ],
+        [
+          512,
+          2
+        ]
+      ],
+      "doubling_exponents": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "median_exponent": 0.0
+    },
+    "avl_cumulative_node_allocations": {
+      "measurements": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0
+    },
+    "avl_final_height": {
+      "measurements": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ]
+      ]
+    }
+  },
+  "memory": {
+    "bst_contains": {
+      "peak_bytes": 0
+    },
+    "is_valid_bst": {
+      "peak_bytes": 0
+    }
+  }
+}
