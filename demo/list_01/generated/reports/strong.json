@@ -1,0 +1,474 @@
+{
+  "solution": "demo/list_01/sample_submissions/strong.py",
+  "summary": {
+    "functional_passed": 23,
+    "functional_total": 23,
+    "method_issue_count": 0
+  },
+  "functional": {
+    "clamp": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "inside",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "below",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "above",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "negative interval",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "first_index": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "first",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "duplicate-first",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "absent",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "min_max": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "mixed",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "all-negative",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "empty-rejected",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "reverse_in_place": {
+      "passed": 3,
+      "total": 3,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "odd",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "even",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "first_negative_running_sum": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "empty",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "immediate",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "later",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "never",
+          "pass": true,
+          "error": null
+        }
+      ]
+    },
+    "analyse_scores": {
+      "passed": 4,
+      "total": 4,
+      "cases": [
+        {
+          "case": "aggregate",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "single",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "empty-rejected",
+          "pass": true,
+          "error": null
+        },
+        {
+          "case": "invalid-score-rejected",
+          "pass": true,
+          "error": null
+        }
+      ]
+    }
+  },
+  "static": {
+    "clamp": {
+      "missing": false,
+      "loops": 0,
+      "max_loop_depth": 0,
+      "ifs": 2,
+      "returns": 3,
+      "assignments": 0,
+      "calls": [],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    },
+    "first_index": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 0,
+      "calls": [
+        "len",
+        "range"
+      ],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    },
+    "min_max": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 3,
+      "returns": 1,
+      "assignments": 5,
+      "calls": [
+        "ValueError",
+        "len",
+        "range"
+      ],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    },
+    "reverse_in_place": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 0,
+      "returns": 0,
+      "assignments": 5,
+      "calls": [
+        "len"
+      ],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    },
+    "first_negative_running_sum": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 1,
+      "returns": 2,
+      "assignments": 2,
+      "calls": [
+        "len",
+        "range"
+      ],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    },
+    "analyse_scores": {
+      "missing": false,
+      "loops": 1,
+      "max_loop_depth": 1,
+      "ifs": 7,
+      "returns": 1,
+      "assignments": 10,
+      "calls": [
+        "ValueError",
+        "len",
+        "range"
+      ],
+      "slice": false,
+      "list_comprehension": false,
+      "recursion": false,
+      "print": false,
+      "global": false
+    }
+  },
+  "method_findings": {
+    "clamp": [],
+    "first_index": [],
+    "min_max": [],
+    "reverse_in_place": [],
+    "first_negative_running_sum": [],
+    "analyse_scores": []
+  },
+  "runtime": {
+    "first_index": {
+      "ok": true,
+      "result": 1,
+      "reads": 2,
+      "writes": 0,
+      "iterations": 0,
+      "visited_indices": [
+        0,
+        1
+      ],
+      "early_exit": true
+    },
+    "min_max": {
+      "ok": true,
+      "result": [
+        0,
+        99
+      ],
+      "reads": 101,
+      "writes": 0,
+      "iterations": 0,
+      "slices": 0,
+      "comparisons": 198
+    },
+    "reverse_in_place": {
+      "ok": true,
+      "result": null,
+      "correct_final_state": true,
+      "reads": 20,
+      "writes": 20,
+      "slice_reads": 0,
+      "slice_writes": 0
+    },
+    "first_negative_running_sum": {
+      "ok": true,
+      "result": 0,
+      "reads": 1,
+      "iterations": 0,
+      "slices": 0,
+      "early_exit": true
+    },
+    "analyse_scores": {
+      "ok": true,
+      "result": [
+        53.333333333333336,
+        0,
+        100,
+        4
+      ],
+      "reads": 6,
+      "writes": 0,
+      "iterations": 0,
+      "slices": 0
+    }
+  },
+  "complexity": {
+    "first_index": {
+      "measurements": [
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          512,
+          512
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0,
+      "error": null
+    },
+    "min_max": {
+      "measurements": [
+        [
+          64,
+          65
+        ],
+        [
+          128,
+          129
+        ],
+        [
+          256,
+          257
+        ],
+        [
+          512,
+          513
+        ]
+      ],
+      "doubling_exponents": [
+        0.9888594423947997,
+        0.994397293770624,
+        0.997190466413176
+      ],
+      "median_exponent": 0.994397293770624,
+      "error": null
+    },
+    "first_negative_running_sum": {
+      "measurements": [
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          512,
+          512
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0,
+      "error": null
+    },
+    "analyse_scores": {
+      "measurements": [
+        [
+          64,
+          64
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          512,
+          512
+        ]
+      ],
+      "doubling_exponents": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_exponent": 1.0,
+      "error": null
+    }
+  },
+  "trace": {
+    "result": [
+      2,
+      9
+    ],
+    "line_counts": {
+      "20": 1,
+      "22": 1,
+      "23": 1,
+      "24": 4,
+      "25": 3,
+      "26": 3,
+      "27": 1,
+      "28": 3,
+      "29": 1,
+      "30": 1
+    },
+    "call_counts": {
+      "min_max": 1
+    },
+    "stdout": "",
+    "stderr": ""
+  },
+  "memory": {
+    "min_max": {
+      "current_bytes": 0,
+      "peak_bytes": 148
+    },
+    "first_negative_running_sum": {
+      "current_bytes": 72,
+      "peak_bytes": 220
+    },
+    "analyse_scores": {
+      "current_bytes": 144,
+      "peak_bytes": 240
+    }
+  }
+}

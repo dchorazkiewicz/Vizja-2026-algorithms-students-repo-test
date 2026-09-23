@@ -1,0 +1,73 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'ci' -> database=None, deadline=None, print_blob=True, derandomize=True, suppress_health_check=(HealthCheck.too_slow,)
+rootdir: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test
+configfile: pytest.ini
+plugins: hypothesis-6.168.1, timeout-2.4.0
+timeout: 3.0s
+timeout method: signal
+timeout func_only: False
+collecting ... collected 58 items
+
+demo/list_01/tests/test_ast.py::test_no_import_shortcuts PASSED          [  1%]
+demo/list_01/tests/test_ast.py::test_clamp_structure PASSED              [  3%]
+demo/list_01/tests/test_ast.py::test_first_index_structure PASSED        [  5%]
+demo/list_01/tests/test_ast.py::test_min_max_structure PASSED            [  6%]
+demo/list_01/tests/test_ast.py::test_reverse_structure PASSED            [  8%]
+demo/list_01/tests/test_ast.py::test_running_sum_structure PASSED        [ 10%]
+demo/list_01/tests/test_ast.py::test_analyse_scores_structure PASSED     [ 12%]
+demo/list_01/tests/test_behavior.py::test_first_index_stops_after_first_match PASSED [ 13%]
+demo/list_01/tests/test_behavior.py::test_min_max_does_not_copy_or_mutate PASSED [ 15%]
+demo/list_01/tests/test_behavior.py::test_reverse_is_in_place_and_linear PASSED [ 17%]
+demo/list_01/tests/test_behavior.py::test_running_sum_early_exit PASSED  [ 18%]
+demo/list_01/tests/test_behavior.py::test_analyse_scores_is_single_pass_in_behavior PASSED [ 20%]
+demo/list_01/tests/test_complexity.py::test_linear_read_growth[first_index-args0] PASSED [ 22%]
+demo/list_01/tests/test_complexity.py::test_linear_read_growth[min_max-args1] PASSED [ 24%]
+demo/list_01/tests/test_complexity.py::test_linear_read_growth[first_negative_running_sum-args2] PASSED [ 25%]
+demo/list_01/tests/test_complexity.py::test_analyse_scores_linear_read_growth PASSED [ 27%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[5-0-10-5] PASSED [ 29%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[-4-0-10-0] PASSED [ 31%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[14-0-10-10] PASSED [ 32%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[0-0-10-0] PASSED [ 34%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[10-0-10-10] PASSED [ 36%]
+demo/list_01/tests/test_functional.py::test_clamp_examples[-5--10--1--5] PASSED [ 37%]
+demo/list_01/tests/test_functional.py::test_clamp_property PASSED        [ 39%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values0-3--1] PASSED [ 41%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values1-3-0] PASSED [ 43%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values2-3-2] PASSED [ 44%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values3-3-1] PASSED [ 46%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values4-1-0] PASSED [ 48%]
+demo/list_01/tests/test_functional.py::test_first_index_examples[values5-9--1] PASSED [ 50%]
+demo/list_01/tests/test_functional.py::test_first_index_property PASSED  [ 51%]
+demo/list_01/tests/test_functional.py::test_min_max_examples[values0-expected0] PASSED [ 53%]
+demo/list_01/tests/test_functional.py::test_min_max_examples[values1-expected1] PASSED [ 55%]
+demo/list_01/tests/test_functional.py::test_min_max_examples[values2-expected2] PASSED [ 56%]
+demo/list_01/tests/test_functional.py::test_min_max_examples[values3-expected3] PASSED [ 58%]
+demo/list_01/tests/test_functional.py::test_min_max_examples[values4-expected4] PASSED [ 60%]
+demo/list_01/tests/test_functional.py::test_min_max_empty PASSED         [ 62%]
+demo/list_01/tests/test_functional.py::test_min_max_property PASSED      [ 63%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values0] PASSED [ 65%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values1] PASSED [ 67%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values2] PASSED [ 68%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values3] PASSED [ 70%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values4] PASSED [ 72%]
+demo/list_01/tests/test_functional.py::test_reverse_in_place[values5] PASSED [ 74%]
+demo/list_01/tests/test_functional.py::test_first_negative_running_sum[values0--1] PASSED [ 75%]
+demo/list_01/tests/test_functional.py::test_first_negative_running_sum[values1-0] PASSED [ 77%]
+demo/list_01/tests/test_functional.py::test_first_negative_running_sum[values2--1] PASSED [ 79%]
+demo/list_01/tests/test_functional.py::test_first_negative_running_sum[values3-3] PASSED [ 81%]
+demo/list_01/tests/test_functional.py::test_first_negative_running_sum[values4-2] PASSED [ 82%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_examples PASSED [ 84%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_invalid[scores0-50] PASSED [ 86%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_invalid[scores1-50] PASSED [ 87%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_invalid[scores2-50] PASSED [ 89%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_invalid[scores3--1] PASSED [ 91%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_invalid[scores4-101] PASSED [ 93%]
+demo/list_01/tests/test_functional.py::test_analyse_scores_property PASSED [ 94%]
+demo/list_01/tests/test_sample_profiles.py::test_strong_profile_is_clean PASSED [ 96%]
+demo/list_01/tests/test_sample_profiles.py::test_functionally_correct_profile_exposes_method_issues PASSED [ 98%]
+demo/list_01/tests/test_sample_profiles.py::test_weak_profile_has_correctness_and_method_problems PASSED [100%]
+
+- generated xml file: /home/runner/work/Vizja-2026-algorithms-students-repo-test/Vizja-2026-algorithms-students-repo-test/artifacts/junit.xml -
+============================== 58 passed in 1.60s ==============================
