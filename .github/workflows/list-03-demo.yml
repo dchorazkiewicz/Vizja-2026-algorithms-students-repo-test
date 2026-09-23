@@ -1,0 +1,155 @@
+name: List 03 automated assessment demo
+
+on:
+  push:
+    paths:
+      - "demo/list_03/**"
+      - "!demo/list_03/evidence/**"
+      - "!demo/list_03/generated/**"
+      - ".github/workflows/list-03-demo.yml"
+  pull_request:
+    paths:
+      - "demo/list_03/**"
+      - "!demo/list_03/evidence/**"
+      - "!demo/list_03/generated/**"
+      - ".github/workflows/list-03-demo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  demonstrate:
+    name: Run List 03 tree grader and sample submissions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install grader dependencies
+        run: python -m pip install -r demo/list_03/requirements-dev.txt
+
+      - name: Run grader self-tests and reference tests
+        shell: bash
+        env:
+          PYTHONPATH: .
+        run: |
+          set -o pipefail
+          mkdir -p artifacts
+          pytest demo/list_03/tests --timeout=5 --junitxml=artifacts/junit.xml -vv | tee artifacts/pytest.log
+
+      - name: Generate technical reports
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_03.private_grader.evaluate --solution demo/list_03/sample_submissions/strong.py --markdown artifacts/strong.md --json artifacts/strong.json
+          python -m demo.list_03.private_grader.evaluate --solution demo/list_03/sample_submissions/functionally_correct_but_inefficient.py --markdown artifacts/functionally-correct-but-inefficient.md --json artifacts/functionally-correct-but-inefficient.json
+          python -m demo.list_03.private_grader.evaluate --solution demo/list_03/sample_submissions/weak.py --markdown artifacts/weak.md --json artifacts/weak.json
+
+      - name: Render GitHub Issue feedback drafts
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_03.private_grader.feedback --report-json artifacts/strong.json --profile "strong" --source-sha "$GITHUB_SHA" --output artifacts/feedback-strong.md
+          python -m demo.list_03.private_grader.feedback --report-json artifacts/functionally-correct-but-inefficient.json --profile "functionally correct but inefficient" --source-sha "$GITHUB_SHA" --output artifacts/feedback-functionally-correct-but-inefficient.md
+          python -m demo.list_03.private_grader.feedback --report-json artifacts/weak.json --profile "weak" --source-sha "$GITHUB_SHA" --output artifacts/feedback-weak.md
+
+      - name: Publish reports in the Actions summary
+        shell: bash
+        run: |
+          {
+            echo "# List 03 automated assessment demo"
+            echo
+            echo "## Strong submission"
+            cat artifacts/strong.md
+            echo
+            echo "---"
+            echo
+            echo "## Functionally correct but inefficient"
+            cat artifacts/functionally-correct-but-inefficient.md
+            echo
+            echo "---"
+            echo
+            echo "## Weak submission"
+            cat artifacts/weak.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Prepare repository evidence snapshot
+        shell: bash
+        run: |
+          rm -rf demo/list_03/generated
+          mkdir -p demo/list_03/generated/reports
+          mkdir -p demo/list_03/generated/feedback
+          mkdir -p demo/list_03/generated/test-run
+
+          cp artifacts/strong.md demo/list_03/generated/reports/strong.md
+          cp artifacts/strong.json demo/list_03/generated/reports/strong.json
+          cp artifacts/functionally-correct-but-inefficient.md demo/list_03/generated/reports/functionally-correct-but-inefficient.md
+          cp artifacts/functionally-correct-but-inefficient.json demo/list_03/generated/reports/functionally-correct-but-inefficient.json
+          cp artifacts/weak.md demo/list_03/generated/reports/weak.md
+          cp artifacts/weak.json demo/list_03/generated/reports/weak.json
+
+          cp artifacts/feedback-strong.md demo/list_03/generated/feedback/strong-issue.md
+          cp artifacts/feedback-functionally-correct-but-inefficient.md demo/list_03/generated/feedback/functionally-correct-but-inefficient-issue.md
+          cp artifacts/feedback-weak.md demo/list_03/generated/feedback/weak-issue.md
+
+          cp artifacts/pytest.log demo/list_03/generated/test-run/pytest.log
+          cp artifacts/junit.xml demo/list_03/generated/test-run/junit.xml
+
+          cat > demo/list_03/generated/README.md <<EOF
+          # Latest CI-generated List 03 evidence
+
+          This directory is generated and committed automatically by GitHub Actions.
+
+          Source commit evaluated: `$GITHUB_SHA`
+          GitHub Actions run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
+          Contents:
+          - Markdown and JSON technical reports;
+          - ready-to-post GitHub Issue feedback drafts;
+          - raw pytest log;
+          - JUnit XML;
+          - run metadata.
+
+          The commit updating this directory is created by `github-actions[bot]`.
+          EOF
+
+          cat > demo/list_03/generated/run-metadata.md <<EOF
+          # Run metadata
+
+          - source commit: `$GITHUB_SHA`
+          - workflow: `$GITHUB_WORKFLOW`
+          - run id: `$GITHUB_RUN_ID`
+          - run number: `$GITHUB_RUN_NUMBER`
+          - repository: `$GITHUB_REPOSITORY`
+          - event: `$GITHUB_EVENT_NAME`
+          - runner OS: `$RUNNER_OS`
+          - Python: 3.12
+          - run URL: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          EOF
+
+      - name: Upload technical evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: list-03-technical-evidence
+          path: artifacts/
+
+      - name: Commit generated evidence to the repository
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add demo/list_03/generated
+
+          if git diff --cached --quiet; then
+            echo "Generated evidence is unchanged; no commit required."
+          else
+            git commit -m "Update generated List 03 evidence [skip ci]"
+            git push
+          fi

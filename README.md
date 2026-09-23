@@ -1,6 +1,6 @@
 # Algorithms and Complexity — Automated Exercise & Feedback Demonstrator
 
-[![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml) [![List 02 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml)
+[![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml) [![List 02 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml) [![List 03 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-03-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-03-demo.yml)
 
 This repository is a working proof of concept showing how I would structure the technical exercise and feedback workflow for **Algorithms and Complexity**.
 
@@ -93,3 +93,12 @@ Both demonstrations are executable CI pipelines rather than static documentation
 For List 02, the verified GitHub Actions run completed with **31 passing tests**, generated reports and student-facing feedback drafts, and committed the resulting evidence back to the repository using `github-actions[bot]`.
 
 See [List 02 generated evidence](demo/list_02/generated/) and [List 02 curated evidence](demo/list_02/evidence/).
+
+
+## Working demonstration: List 03
+
+[List 03 — Binary Trees, BST and AVL Trees](demo/list_03/README.md) extends the same approach to pointer-like structures and structural invariants.
+
+The grader observes node visits, key comparisons, left/right traversal, link writes, node allocation, recursion depth, actual tree height, global BST validity, stored AVL heights, balance factors, and rotation calls. It also compares balanced and degenerate trees to make the dependence on tree height directly observable.
+
+As with the earlier demonstrations, GitHub Actions runs the real grader, generates versioned reports and Issue feedback drafts, uploads raw evidence, and commits the latest generated evidence using `github-actions[bot]`.
