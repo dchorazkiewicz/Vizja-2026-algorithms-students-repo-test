@@ -56,7 +56,7 @@ Each demonstration contains:
 - generated technical reports;
 - ready-to-post GitHub Issue feedback drafts;
 - raw pytest/JUnit evidence;
-- CI-generated evidence committed by \`github-actions[bot]\`.
+- CI-generated evidence committed by `github-actions[bot]`.
 
 ## Why the three student profiles matter
 
