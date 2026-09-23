@@ -1,6 +1,6 @@
 # Algorithms and Complexity — Automated Exercise & Feedback Demonstrator
 
-[![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml)
+[![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml) [![List 02 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml)
 
 This repository is a working proof of concept showing how I would structure the technical exercise and feedback workflow for **Algorithms and Complexity**.
 
@@ -76,3 +76,11 @@ The grader therefore combines:
 - execution tracing.
 
 The purpose is not to reward clever test-specific code. The purpose is to make algorithmic behaviour observable and to give the student precise technical feedback tied to a specific version of their work.
+
+## Working demonstration: List 02
+
+[List 02 — Searching, Sorting and Divide & Conquer](demo/list_02/README.md) extends the same system to algorithms where implementation details are especially observable.
+
+The demonstrator measures not only correctness, but also comparison counts, data movement, stability, adaptivity, binary-search access patterns, recursion depth, empirical growth, in-place behaviour, and memory characteristics.
+
+The engineering goal is reproducibility and auditability: deterministic probes, machine-readable JSON/JUnit output, human-readable Markdown, commit-SHA provenance, and CI-generated evidence committed by GitHub Actions.
