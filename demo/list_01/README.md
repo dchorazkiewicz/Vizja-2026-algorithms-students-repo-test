@@ -66,3 +66,8 @@ python -m demo.list_01.private_grader.evaluate \
 GitHub Actions runs the complete laboratory on every relevant change. It executes the tests, verifies that the grader distinguishes all three sample profiles, generates Markdown and JSON reports, publishes them in the Actions summary, and uploads technical evidence as an artifact.
 
 The workflow is part of the demonstration: it proves that the inspection described here is executable rather than only conceptual.
+
+
+## Captured evidence
+
+A successful CI run is preserved in [evidence/](evidence/) as concise snapshots for the three sample submissions. Raw JSON/JUnit/pytest logs remain available from the corresponding GitHub Actions run artifact.
