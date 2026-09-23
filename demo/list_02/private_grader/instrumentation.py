@@ -129,6 +129,15 @@ class InstrumentedSequence:
             self.ledger.record("read", index=index, value=unwrap(value))
             yield value
 
+    def sort(self, *args, **kwargs):
+        """Allow library sort so the grader can observe the forbidden shortcut.
+
+        Instrumentation should observe student behaviour rather than crashing
+        before the AST/runtime evidence can be recorded.
+        """
+        self.ledger.record("library_sort")
+        self._data.sort(*args, **kwargs)
+
     def snapshot(self):
         return [unwrap(item) for item in self._data]
 
