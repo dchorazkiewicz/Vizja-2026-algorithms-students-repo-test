@@ -142,3 +142,53 @@ pytest -q playground/list_01_foundations/tests
 ```
 
 Dzięki temu te same testy będzie można później uruchamiać przeciwko snapshotowi rozwiązania pobranemu z mirrora studenta.
+
+
+## Trzy przykładowe profile studenta
+
+Playground zawiera teraz trzy kompletne przykłady:
+
+- `samples/student_good.py` — rozwiązanie poprawne wynikowo i zgodne z wymaganym sposobem implementacji;
+- `samples/student_medium.py` — wyniki są poprawne, ale kod używa shortcutów, dodatkowych przejść lub nie kończy się tak wcześnie, jak powinien;
+- `samples/student_bad.py` — zawiera zarówno błędy poprawności, jak i błędy algorytmiczne.
+
+To pozwala testować nie tylko zadania, ale również **sam grader**. Testy sprawdzają, że dobry profil przechodzi, średni jest rozpoznawany jako poprawny funkcjonalnie lecz metodycznie słabszy, a słaby profil generuje zarówno błędy wynikowe, jak i algorytmiczne.
+
+## Rozszerzony raport implementacji
+
+`grader/evaluate.py` generuje raport łączący:
+
+- poprawność funkcjonalną;
+- metryki AST;
+- zakazane skróty;
+- liczbę pętli i głębokość zagnieżdżeń;
+- odczyty i zapisy danych;
+- indeksy rzeczywiście odwiedzone przez algorytm;
+- liczbę iteracji po sekwencji;
+- porównania na instrumentowanych wartościach;
+- early termination;
+- empiryczny wzrost kosztu dla kolejnych rozmiarów n;
+- trace wykonanych linii i wywołań;
+- stdout/stderr;
+- diagnostyczny pomiar pamięci.
+
+Przykład:
+
+```bash
+python -m playground.list_01_foundations.grader.evaluate \
+  --solution playground/list_01_foundations/samples/student_medium.py \
+  --markdown report.md \
+  --json report.json
+```
+
+## GitHub Actions jako laboratorium
+
+Workflow `.github/workflows/list-01-playground.yml` przy każdym pushu:
+
+1. uruchamia pełne testy gradera;
+2. sprawdza, czy trzy profile studenta są poprawnie rozróżniane;
+3. generuje osobne raporty dla profilu dobrego, średniego i słabego;
+4. publikuje je w GitHub Actions Job Summary;
+5. zapisuje log pytest, JUnit XML oraz raporty Markdown/JSON jako artifact.
+
+W ten sposób publiczne repozytorium jest jednocześnie działającą demonstracją tego, ile informacji można automatycznie wydobyć z bardzo prostych implementacji algorytmów.
