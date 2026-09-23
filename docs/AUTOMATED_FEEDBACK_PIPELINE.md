@@ -42,6 +42,8 @@ The mirror can also preserve Issue and comment snapshots when GitHub communicati
 
 The grader contains the material that must remain instructor-side: hidden unit tests, property-based tests, AST rules, runtime instrumentation, operation-count experiments, memory and side-effect checks, reference implementations, and report generation.
 
+In production, untrusted student code should execute in an isolated environment with no repository write token or unrelated secrets, restricted network access where appropriate, and explicit CPU, memory and time limits. The public demonstrator shows the grading logic; sandbox hardening belongs to the deployment layer.
+
 ## End-to-end flow
 
 ~~~text

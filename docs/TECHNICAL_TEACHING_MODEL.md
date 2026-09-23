@@ -54,7 +54,21 @@ Examples:
 
 The point is not to replace formal reasoning. It is to give students runtime evidence that can be connected to that reasoning.
 
-## 4. Method-level checks must follow the learning objective
+## 4. Triangulate evidence and avoid overclaiming
+
+Different checks establish different kinds of evidence:
+
+- functional tests show behaviour on tested cases;
+- property-based tests widen the explored input space;
+- AST analysis shows source structure;
+- runtime instrumentation shows operations actually performed during a probe;
+- empirical growth experiments show how measured cost changes with input size.
+
+None of these should be presented as something it is not. In particular, an empirical complexity experiment is not a formal proof of Big O, and an AST pattern alone does not prove runtime behaviour.
+
+The grader is strongest when several independent signals support the same conclusion.
+
+## 5. Method-level checks must follow the learning objective
 
 A methodological rule is justified only when it corresponds to the algorithmic concept being taught.
 
@@ -68,7 +82,7 @@ This prevents the grader from turning personal coding preferences into hidden as
 
 The evidence should therefore be explainable in terms of the published task contract.
 
-## 5. Feedback should say what happened and what to improve
+## 6. Feedback should say what happened and what to improve
 
 A useful feedback item normally contains:
 
@@ -88,7 +102,7 @@ Maintain low/high bounds and inspect only the midpoint of the active interval.
 
 This is intentionally different from an unexplained FAIL.
 
-## 6. Use software-development mechanics where they are educationally useful
+## 7. Use software-development mechanics where they are educationally useful
 
 The workflow uses:
 
@@ -102,7 +116,7 @@ The workflow uses:
 
 These are not decorative additions. They make the work reproducible, reviewable and iterative, while exposing students to habits that also make sense in larger software projects.
 
-## 7. Keep automation and educational judgment separate
+## 8. Keep automation and educational judgment separate
 
 The automated layer should report facts:
 
@@ -117,7 +131,7 @@ It should not silently turn those observations into an irreversible educational 
 
 The report is evidence. The decision about what that evidence means remains a separate layer.
 
-## 8. Feedback is also a technical conversation
+## 9. Feedback is also a technical conversation
 
 The generated Issue text is a starting point, not the end of the interaction.
 
@@ -136,7 +150,7 @@ code
 
 Automation improves the quality and consistency of the starting evidence; it does not remove the human review loop.
 
-## 9. Increase depth as the algorithms become richer
+## 10. Increase depth as the algorithms become richer
 
 - **List 01:** state, control flow, reads/writes, side effects and simple complexity;
 - **List 02:** search paths, stability, adaptivity, comparisons, data movement and divide-and-conquer growth;
@@ -144,7 +158,7 @@ Automation improves the quality and consistency of the starting evidence; it doe
 
 The same model can later extend naturally to graphs, heaps, dynamic programming, backtracking or other syllabus areas.
 
-## 10. Preserve reproducibility
+## 11. Preserve reproducibility
 
 A technical result should be identifiable by at least:
 

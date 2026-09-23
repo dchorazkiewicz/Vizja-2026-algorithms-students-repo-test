@@ -1,4 +1,4 @@
-# Algorithms and Complexity — Automated Exercise & Feedback Demonstrator
+# Algorithms and Complexity — Evidence-Driven Exercise & Feedback Demonstrator
 
 [![List 01 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-01-demo.yml)
 [![List 02 demo](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml/badge.svg)](https://github.com/dchorazkiewicz/Vizja-2026-algorithms-students-repo-test/actions/workflows/list-02-demo.yml)
@@ -43,7 +43,7 @@ See [Technical teaching model](docs/TECHNICAL_TEACHING_MODEL.md).
 
 ## What is already proven here
 
-The repository contains executable evidence rather than architecture slides:
+The repository contains executable evidence rather than only architectural documentation:
 
 - three complete assignment demonstrators;
 - three simulated quality profiles per list;
@@ -52,13 +52,13 @@ The repository contains executable evidence rather than architecture slides:
 - generated Markdown and JSON technical reports;
 - student-facing GitHub Issue feedback drafts;
 - raw pytest and JUnit evidence;
-- GitHub Actions runs that generate the evidence and commit it back through \`github-actions[bot]\`.
+- GitHub Actions runs that generate the evidence and commit it back through `github-actions[bot]`.
 
 The generated folders therefore answer a practical question: **what would the system actually tell a student about this exact implementation?**
 
 ## What this adds beyond an ordinary autograder
 
-An ordinary autograder is very good at answering:
+An output-oriented autograder is very good at answering:
 
 > Did the program return the expected result?
 
@@ -74,11 +74,11 @@ This demonstrator is designed to answer additional questions when they are part 
 
 > Does AVL insertion repair the tree locally or rebuild everything?
 
-The method-level rules are task-specific. They are used when the requested algorithm or property is itself the subject being learned, not as arbitrary code-style preferences.
+The method-level rules are task-specific. They are used when the requested algorithm or property is itself the subject being learned, not as arbitrary code-style preferences. Static analysis, runtime instrumentation and empirical growth are treated as complementary evidence rather than interchangeable proofs.
 
 ## Student and instructor value
 
-For the student, the environment supports a **revision loop** rather than a one-shot verdict: implement, commit, inspect evidence, receive feedback, revise, and compare the next result.
+For the student, the environment supports **formative iteration** rather than a one-shot verdict: implement, commit, inspect evidence, receive feedback, revise, and compare the next result.
 
 For the instructor, repeatable technical checks can be automated while attention remains available for higher-value work: discussing reasoning, clarifying misconceptions, reviewing trade-offs and deciding what the evidence means educationally.
 
