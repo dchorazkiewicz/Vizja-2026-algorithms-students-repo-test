@@ -53,7 +53,10 @@ def render_feedback(data, profile, source_sha):
     runtime = data["runtime"]
 
     search = runtime.get("bst_contains", {})
-    if search.get("ok") and search.get("balanced_key_reads", 0) > 64:
+    search_functional = data["functional"]["bst_contains"]
+    search_contract_ok = search_functional["passed"] == search_functional["total"]
+
+    if search.get("ok") and search_contract_ok and search.get("balanced_key_reads", 0) > 64:
         lines += [
             "## BST search path",
             "",
@@ -62,7 +65,7 @@ def render_feedback(data, profile, source_sha):
             "A BST search should follow one root-to-leaf path. Avoid materialising a full traversal before searching.",
             "",
         ]
-    elif search.get("ok"):
+    elif search.get("ok") and search_contract_ok:
         lines += [
             "## Tree shape matters",
             "",
@@ -70,6 +73,20 @@ def render_feedback(data, profile, source_sha):
             f"Degenerate right-chain probe: **{search.get('skewed_key_reads')}** key reads.",
             "",
             "This contrast is expected: BST search is O(h), so a balanced tree and a degenerate tree with the same operation can behave very differently.",
+            "",
+        ]
+    elif not search_contract_ok:
+        failed = [
+            case["case"]
+            for case in search_functional["cases"]
+            if not case["pass"]
+        ]
+        lines += [
+            "## BST search correctness",
+            "",
+            f"The search contract fails for: **{', '.join(failed)}**.",
+            "",
+            "Check the branch direction carefully: when target < node.key, continue in the left subtree; when target > node.key, continue in the right subtree.",
             "",
         ]
 
@@ -94,6 +111,18 @@ def render_feedback(data, profile, source_sha):
                 "",
             ]
 
+    height_functional = data["functional"]["bst_height"]
+    if height_functional["passed"] != height_functional["total"]:
+        height_runtime = runtime.get("bst_height", {})
+        lines += [
+            "## Height convention",
+            "",
+            f"The balanced probe returned height **{height_runtime.get('result')}** where **{height_runtime.get('expected')}** is required.",
+            "",
+            "Use the declared convention consistently: empty tree has height 0 and a leaf has height 1.",
+            "",
+        ]
+
     validator = runtime.get("is_valid_bst", {})
     if validator.get("ok") and validator.get("deep_invalid_result") is True:
         lines += [
@@ -102,6 +131,23 @@ def render_feedback(data, profile, source_sha):
             "The validator accepted a tree whose direct parent/child comparisons look valid locally but whose deeper node violates an ancestor bound.",
             "",
             "Carry lower and upper bounds through the recursion. Checking only immediate children is not sufficient.",
+            "",
+        ]
+
+    left_rotation = runtime.get("rotate_left", {})
+    left_rotation_functional = data["functional"]["rotate_left"]
+    right_rotation_functional = data["functional"]["rotate_right"]
+
+    if (
+        left_rotation_functional["passed"] != left_rotation_functional["total"]
+        or right_rotation_functional["passed"] != right_rotation_functional["total"]
+    ):
+        lines += [
+            "## Rotation maintenance",
+            "",
+            f"The rotation probe observed **{left_rotation.get('link_writes')}** local link writes but **{left_rotation.get('height_writes')}** stored-height updates.",
+            "",
+            "A structurally correct rotation is not enough for AVL trees: after rewiring the subtree, recompute the stored heights of the demoted node first and the new subtree root second.",
             "",
         ]
 
