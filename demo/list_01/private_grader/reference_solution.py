@@ -1,7 +1,7 @@
-"""Reference implementations for the List 01 playground.
+"""Reference implementations used by the private List 01 grader.
 
-These are intentionally kept beside the tests while the course model is being
-designed. They are not intended to be shipped with the future student workbook.
+These implementations are instructor-side material and are not intended to be
+shipped with the student workbook.
 """
 
 
@@ -79,7 +79,6 @@ def analyse_scores(scores, passing_score: int) -> tuple[float, int, int, int]:
             raise ValueError("score must be in [0, 100]")
 
         total += score
-
         if score < minimum:
             minimum = score
         if score > maximum:

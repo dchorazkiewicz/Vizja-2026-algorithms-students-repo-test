@@ -14,7 +14,7 @@ from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
 
-from playground.list_01_foundations.grader.instrumentation import InstrumentedSequence, unwrap
+from demo.list_01.private_grader.instrumentation import InstrumentedSequence, unwrap
 
 
 FUNCTIONS = (

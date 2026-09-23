@@ -1,112 +1,109 @@
-# Obszary tematyczne do projektowania zadań
+# Task-design topic map
 
-Ten dokument wyciąga z sylabusa główne obszary, wokół których będziemy projektować zadania dla studentów w tym repozytorium.
+This document extracts the main exercise-design areas from the course syllabus. It is a planning map, not a list of finished assignments.
 
-Źródło merytoryczne: `dchorazkiewicz/Algorithms_and_Complexity`.
+## 1. Foundations of algorithm design
 
-## 1. Podstawy algorytmizacji
+- imperative computation;
+- preconditions and postconditions;
+- representations of algorithms;
+- properties of algorithms;
+- pseudocode;
+- structured algorithm design.
 
-- przetwarzanie imperatywne;
-- asercja początkowa i końcowa;
-- postacie reprezentacji algorytmu;
-- cechy poprawnego algorytmu;
-- pseudokod;
-- podstawowe metody strukturalizacji algorytmów.
+## 2. Iteration, recursion, and data types
 
-## 2. Iteracja, rekurencja i typy danych
+- iterative loops;
+- stopping conditions;
+- recursion;
+- constructing correct algorithms;
+- primitive and compound data types;
+- iteration versus recursion.
 
-- pętle iteracyjne;
-- warunki stopu;
-- rekurencja;
-- konstruowanie poprawnego algorytmu;
-- typy pierwotne i złożone;
-- porównanie podejścia iteracyjnego i rekurencyjnego.
+## 3. Arrays, records, and memory representation
 
-## 3. Tablice, rekordy i reprezentacja danych
+- arrays;
+- records;
+- in-memory representation;
+- direct access;
+- traversal and updates;
+- basic operations on aggregate structures.
 
-- tablice;
-- rekordy;
-- reprezentacja danych w pamięci;
-- bezpośredni dostęp do elementów;
-- przechodzenie i modyfikacja tablic;
-- podstawowe operacje na agregatach danych.
+## 4. Searching, sorting, and divide and conquer
 
-## 4. Wyszukiwanie, sortowanie i dziel i zwyciężaj
-
-- wyszukiwanie liniowe;
-- wyszukiwanie binarne;
-- algorytmy sortowania;
-- własności algorytmów sortowania;
-- wstęp do analizy złożoności;
-- metoda dziel i zwyciężaj;
+- linear search;
+- binary search;
+- sorting algorithms;
+- properties of sorting algorithms;
+- introductory complexity analysis;
+- divide and conquer;
 - QuickSort;
-- tablice indeksowe.
+- index arrays.
 
-## 5. Funkcje, stos wywołań i rekurencja
+## 5. Functions, the call stack, and recursion
 
-- komunikacja funkcji z otoczeniem;
-- efekty uboczne;
-- zmienne i ramki stosu;
-- anatomia wywołania rekurencyjnego;
-- rekurencja pośrednia i zagnieżdżona;
-- symulacja rekurencji za pomocą stosu;
-- typowe problemy z rekurencją;
-- rekurencja a iteracja.
+- function interaction with its environment;
+- side effects;
+- stack frames;
+- anatomy of a recursive call;
+- indirect and nested recursion;
+- explicit stack simulation;
+- recursion failure modes;
+- recursion versus iteration.
 
-## 6. Backtracking, metody zachłanne i struktury dynamiczne
+## 6. Backtracking, greedy methods, and dynamic structures
 
-- przestrzeń rozwiązań;
-- algorytmy z powrotami;
-- pruning / odcinanie gałęzi;
-- algorytmy zachłanne;
-- systematyczne i heurystyczne usprawnianie rozwiązań;
-- dynamiczne struktury danych.
+- search spaces;
+- backtracking;
+- pruning;
+- greedy construction;
+- systematic and heuristic improvements;
+- dynamic data structures.
 
-## 7. Listy, stosy i kolejki
+## 7. Lists, stacks, and queues
 
-- listy liniowe;
-- listy jednokierunkowe i dwukierunkowe;
-- listy cykliczne;
-- stosy LIFO;
-- kolejki FIFO;
-- kolejki priorytetowe;
-- listy samoorganizujące się;
+- singly and doubly linked lists;
+- circular lists;
+- LIFO stacks;
+- FIFO queues;
+- priority queues;
+- self-organising lists;
 - skip lists;
-- algorytmy obsługi list.
+- list-processing algorithms.
 
-## 8. Drzewa i sterty
+## 8. Trees and heaps
 
-- podstawowe pojęcia dotyczące drzew;
-- drzewa binarne;
-- przechodzenie po drzewie;
-- drzewa BST;
-- słowniki oparte na drzewach;
-- równoważenie drzew;
-- drzewa AVL;
-- sterty.
+- tree terminology;
+- binary trees;
+- tree traversal;
+- binary search trees;
+- tree-based dictionaries;
+- balancing;
+- AVL trees;
+- heaps.
 
-## 9. Grafy
+## 9. Graphs
 
-- reprezentacje grafów;
-- listy sąsiedztwa / incydencji;
-- podstawowe operacje na grafach;
-- analiza własności grafów;
-- DFS;
-- wyszukiwanie wyczerpujące;
-- zastosowania DFS.
+- graph representations;
+- adjacency structures;
+- basic graph operations;
+- graph properties;
+- depth-first search;
+- exhaustive search;
+- applications of DFS.
 
-## 10. Złożoność obliczeniowa
+## 10. Computational complexity
 
-- analiza złożoności czasowej;
-- notacja Big O;
-- szacowanie kosztu algorytmów;
-- porównywanie rozwiązań;
-- problemy algorytmicznie trudne;
-- klasy N i NP;
-- problemy NP-zupełne.
+- time-complexity analysis;
+- Big O notation;
+- operation-cost estimation;
+- comparing implementations;
+- computationally hard problems;
+- N and NP;
+- NP-complete problems.
 
-## Jak używać tej listy
+## Use of this map
 
-Na tym etapie dokument jest mapą zakresu, a nie listą gotowych zadań. Kolejne zadania powinny być przypisywane do jednego lub kilku obszarów powyżej. Dzięki temu będzie można kontrolować pokrycie sylabusa i budować zestawy zadań analogicznie do procesu używanego dla matematyki.
+Each assignment should be traceable to one or more areas above. The goal is to make syllabus coverage explicit while still designing executable, testable programming work.
 
-Nie kopiujemy tutaj pełnych notatek wykładowych ani gotowych rozwiązań. Repozytorium `Algorithms_and_Complexity` pozostaje źródłem materiału wykładowego.
+List 01 implements the first area and acts as the reference pattern for later lists.

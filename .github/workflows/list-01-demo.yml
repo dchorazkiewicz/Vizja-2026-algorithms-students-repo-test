@@ -1,0 +1,100 @@
+name: List 01 automated assessment demo
+
+on:
+  push:
+    paths:
+      - "demo/list_01/**"
+      - "!demo/list_01/evidence/**"
+      - ".github/workflows/list-01-demo.yml"
+      - "pytest.ini"
+  pull_request:
+    paths:
+      - "demo/list_01/**"
+      - "!demo/list_01/evidence/**"
+      - ".github/workflows/list-01-demo.yml"
+      - "pytest.ini"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demonstrate:
+    name: Run assignment, grader, and sample submissions
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install grader dependencies
+        run: python -m pip install -r demo/list_01/requirements-dev.txt
+
+      - name: Run grader self-tests and reference tests
+        shell: bash
+        env:
+          PYTHONPATH: .
+        run: |
+          set -o pipefail
+          mkdir -p artifacts
+          pytest demo/list_01/tests \
+            --timeout=3 \
+            --junitxml=artifacts/junit.xml \
+            -vv | tee artifacts/pytest.log
+
+      - name: Generate strong-submission report
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_01.private_grader.evaluate \
+            --solution demo/list_01/sample_submissions/strong.py \
+            --markdown artifacts/strong.md \
+            --json artifacts/strong.json
+
+      - name: Generate functionally-correct-but-inefficient report
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_01.private_grader.evaluate \
+            --solution demo/list_01/sample_submissions/functionally_correct_but_inefficient.py \
+            --markdown artifacts/functionally-correct-but-inefficient.md \
+            --json artifacts/functionally-correct-but-inefficient.json
+
+      - name: Generate weak-submission report
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m demo.list_01.private_grader.evaluate \
+            --solution demo/list_01/sample_submissions/weak.py \
+            --markdown artifacts/weak.md \
+            --json artifacts/weak.json
+
+      - name: Publish reports in the Actions summary
+        shell: bash
+        run: |
+          {
+            echo "# List 01 automated assessment demo"
+            echo
+            echo "## Strong submission"
+            cat artifacts/strong.md
+            echo
+            echo "---"
+            echo
+            echo "## Functionally correct but inefficient"
+            cat artifacts/functionally-correct-but-inefficient.md
+            echo
+            echo "---"
+            echo
+            echo "## Weak submission"
+            cat artifacts/weak.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload technical evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: list-01-technical-evidence
+          path: artifacts/

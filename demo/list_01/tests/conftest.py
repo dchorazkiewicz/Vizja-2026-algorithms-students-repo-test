@@ -12,7 +12,7 @@ def solution_path() -> Path:
     configured = os.environ.get("SOLUTION_FILE")
     if configured:
         return Path(configured).resolve()
-    return ROOT / "reference_solution.py"
+    return ROOT / "private_grader" / "reference_solution.py"
 
 
 def load_solution():

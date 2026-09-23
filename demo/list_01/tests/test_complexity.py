@@ -1,13 +1,13 @@
 import pytest
 
-from playground.list_01_foundations.grader.complexity import empirical_exponent
-from playground.list_01_foundations.grader.tracked import TrackedSequence
+from demo.list_01.private_grader.complexity import empirical_exponent
+from demo.list_01.private_grader.instrumentation import InstrumentedSequence
 
 
 def read_cost(function, values, *args):
-    tracked = TrackedSequence(values)
+    tracked = InstrumentedSequence(values)
     function(tracked, *args)
-    return tracked.reads
+    return tracked.count("read")
 
 
 @pytest.mark.parametrize("name,args", [
@@ -21,9 +21,6 @@ def test_linear_read_growth(solution, name, args):
     if name == "first_negative_running_sum":
         data_n = [1] * 256
         data_2n = [1] * 512
-    elif name == "first_index":
-        data_n = list(range(256))
-        data_2n = list(range(512))
     else:
         data_n = list(range(256))
         data_2n = list(range(512))

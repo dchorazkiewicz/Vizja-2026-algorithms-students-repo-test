@@ -1,6 +1,6 @@
 import ast
 
-from playground.list_01_foundations.grader.ast_checks import (
+from demo.list_01.private_grader.ast_checks import (
     called_names,
     function_node,
     has_imports,
