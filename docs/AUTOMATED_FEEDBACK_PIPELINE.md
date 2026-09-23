@@ -88,6 +88,8 @@ This makes improvement and regression visible over time and ensures that feedbac
 
 A technical report can be condensed into student-facing feedback.
 
+The intended interaction is not one-way. An Issue or comment can become a compact technical review thread: the report identifies an observation, the student can respond or revise the implementation, and a later report can show whether the relevant behaviour changed.
+
 ~~~text
 Task 05
 
@@ -135,3 +137,24 @@ Whether they imply acceptance, revision, a warning, a discussion, or no action i
 The technical pipeline can later publish semantic events to Vizja_classes_databases, for example: a new student version was observed, a grader run completed, a task passes functional checks, a complexity concern was detected, a required artifact is missing, feedback was published, the student replied, or a newer revision is available.
 
 Full snapshots and raw grader logs can remain in the mirror/grader layer, while Vizja_classes_databases stores the educational meaning and current operational state.
+
+
+## Production potential
+
+The current repository proves the analytical core with simulated submissions and real CI execution.
+
+A production deployment can extend the same model without changing the fundamental evidence format:
+
+~~~text
+real fork observation
+→ mirror exact SHA
+→ isolated grader run
+→ versioned report
+→ feedback publication
+→ student response/revision
+→ next observed SHA
+~~~
+
+Likely extensions include scheduled or event-driven mirror updates, automatic Issue/comment publication, longitudinal comparisons between revisions, and integration with the class database for current state and instructor attention queues.
+
+These are deployment extensions rather than prerequisites for the current demonstrator to show the grading and feedback model.

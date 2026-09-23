@@ -54,7 +54,21 @@ Examples:
 
 The point is not to replace formal reasoning. It is to give students runtime evidence that can be connected to that reasoning.
 
-## 4. Feedback should say what happened and what to improve
+## 4. Method-level checks must follow the learning objective
+
+A methodological rule is justified only when it corresponds to the algorithmic concept being taught.
+
+For example:
+
+- banning linear scan in a binary-search task is part of the task itself;
+- checking stability in insertion sort is part of the algorithm's required property;
+- checking local rotations in AVL insertion distinguishes AVL maintenance from whole-tree reconstruction.
+
+This prevents the grader from turning personal coding preferences into hidden assessment criteria.
+
+The evidence should therefore be explainable in terms of the published task contract.
+
+## 5. Feedback should say what happened and what to improve
 
 A useful feedback item normally contains:
 
@@ -74,7 +88,7 @@ Maintain low/high bounds and inspect only the midpoint of the active interval.
 
 This is intentionally different from an unexplained FAIL.
 
-## 5. Use software-development mechanics where they are educationally useful
+## 6. Use software-development mechanics where they are educationally useful
 
 The workflow uses:
 
@@ -88,7 +102,7 @@ The workflow uses:
 
 These are not decorative additions. They make the work reproducible, reviewable and iterative, while exposing students to habits that also make sense in larger software projects.
 
-## 6. Keep automation and educational judgment separate
+## 7. Keep automation and educational judgment separate
 
 The automated layer should report facts:
 
@@ -103,7 +117,26 @@ It should not silently turn those observations into an irreversible educational 
 
 The report is evidence. The decision about what that evidence means remains a separate layer.
 
-## 7. Increase depth as the algorithms become richer
+## 8. Feedback is also a technical conversation
+
+The generated Issue text is a starting point, not the end of the interaction.
+
+A student can challenge an observation, explain an implementation choice, ask what a metric means, or push a revision. The instructor can respond against the same commit and evidence.
+
+That gives the asynchronous part of the course a useful project-like rhythm:
+
+~~~text
+code
+→ automated evidence
+→ review comment
+→ discussion
+→ revision
+→ new evidence
+~~~
+
+Automation improves the quality and consistency of the starting evidence; it does not remove the human review loop.
+
+## 9. Increase depth as the algorithms become richer
 
 - **List 01:** state, control flow, reads/writes, side effects and simple complexity;
 - **List 02:** search paths, stability, adaptivity, comparisons, data movement and divide-and-conquer growth;
@@ -111,7 +144,7 @@ The report is evidence. The decision about what that evidence means remains a se
 
 The same model can later extend naturally to graphs, heaps, dynamic programming, backtracking or other syllabus areas.
 
-## 8. Preserve reproducibility
+## 10. Preserve reproducibility
 
 A technical result should be identifiable by at least:
 

@@ -6,7 +6,7 @@
 
 This repository is a working proof of concept for the **technical side of programming exercises and feedback** in Algorithms and Complexity.
 
-It shows the complete path from a student-facing assignment to versioned technical evidence and actionable feedback:
+It demonstrates the **grading and feedback core** of a larger target workflow:
 
 ~~~text
 assignment
@@ -26,7 +26,9 @@ student revision
 next version, next report
 ~~~
 
-The important point is not only automation. It is **what the automation observes and how that evidence is used**.
+The demonstrator already implements the assignment/grader/evidence/feedback side end to end with real GitHub Actions runs. Automatic mirroring of real student forks, scheduled re-evaluation and automatic posting back to student Issues are production extensions of the same design.
+
+The important point is not only automation. It is **what the automation observes, how trustworthy that evidence is, and whether it helps the student improve the next revision**.
 
 ## What this approach is designed to achieve
 
@@ -38,6 +40,64 @@ The important point is not only automation. It is **what the automation observes
 - **Automation produces technical evidence, not an opaque final grade.** Educational decisions remain separate from the raw measurements.
 
 See [Technical teaching model](docs/TECHNICAL_TEACHING_MODEL.md).
+
+## What is already proven here
+
+The repository contains executable evidence rather than architecture slides:
+
+- three complete assignment demonstrators;
+- three simulated quality profiles per list;
+- private-grader equivalents and hidden-test equivalents;
+- deterministic unit/property/AST/runtime/complexity checks;
+- generated Markdown and JSON technical reports;
+- student-facing GitHub Issue feedback drafts;
+- raw pytest and JUnit evidence;
+- GitHub Actions runs that generate the evidence and commit it back through \`github-actions[bot]\`.
+
+The generated folders therefore answer a practical question: **what would the system actually tell a student about this exact implementation?**
+
+## What this adds beyond an ordinary autograder
+
+An ordinary autograder is very good at answering:
+
+> Did the program return the expected result?
+
+This demonstrator is designed to answer additional questions when they are part of the learning objective:
+
+> Did the student actually implement binary search?
+
+> Is the insertion sort stable and adaptive?
+
+> Is the merge step linear?
+
+> Does the BST validator enforce the global invariant?
+
+> Does AVL insertion repair the tree locally or rebuild everything?
+
+The method-level rules are task-specific. They are used when the requested algorithm or property is itself the subject being learned, not as arbitrary code-style preferences.
+
+## Student and instructor value
+
+For the student, the environment supports a **revision loop** rather than a one-shot verdict: implement, commit, inspect evidence, receive feedback, revise, and compare the next result.
+
+For the instructor, repeatable technical checks can be automated while attention remains available for higher-value work: discussing reasoning, clarifying misconceptions, reviewing trade-offs and deciding what the evidence means educationally.
+
+The feedback channel can also remain conversational. A GitHub Issue can contain the automated evidence, a student response, an instructor clarification and a later commit that addresses the problem. That makes the technical interaction closer to code review than to a static submission form.
+
+## From demonstrator to production
+
+| Already demonstrated | Natural production extension |
+|---|---|
+| student-facing packages | separate official student workbook |
+| simulated student submissions | real student forks |
+| grader running against arbitrary solution files | grader running against mirrored student SHAs |
+| SHA-aware reports | persistent per-student report history |
+| generated Issue drafts | automatic Issue/comment publication |
+| CI-triggered execution | scheduled or event-driven fork monitoring |
+| JSON/Markdown/JUnit evidence | semantic events and current state in the class database |
+| three algorithm families | further syllabus areas: graphs, heaps, dynamic programming, backtracking |
+
+This distinction is intentional: the repository proves the difficult analytical core now while keeping the deployment architecture explicit and inspectable.
 
 ## Three working demonstrations
 
